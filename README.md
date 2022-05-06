@@ -1,2 +1,4 @@
-# nuc-nas
-Network Attached Storage and more on an Intel NUC
+# NuCloud
+NUC + Cloud = NuCloud
+
+Cloud services for home running on an inexpensive Celeron powered Intel NUC.
