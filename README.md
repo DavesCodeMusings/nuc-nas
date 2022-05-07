@@ -1,7 +1,7 @@
 # N&uuml;Cloud
 _NUC + Cloud = N&uuml;Cloud_ &mdash; Cloud services for home running on an inexpensive Celeron powered Intel NUC.
 
-This is a work in progress, but you can start here if you're interested:
+This is a work in progress, but you can start here if you're interested, start here:
 
 https://github.com/DavesCodeMusings/nucloud/blob/main/docs/index.md
 
