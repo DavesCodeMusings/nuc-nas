@@ -1,8 +1,7 @@
 TODO
 
 ```
-alpine:~# wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/s
-etup-file-sharing.sh
+alpine:~# wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-file-sharing.sh
 Connecting to raw.githubusercontent.com (185.199.109.133:443)
 saving to 'setup-file-sharing.sh'
 setup-file-sharing.s 100% |********************************|   961  0:00:00 ETA
@@ -22,3 +21,6 @@ Status: Downloaded newer image for davescodemusings/samba-anon:x86
 Creating samba     ... done
 Creating nextcloud ... done
 ```
+
+>Some output has been truncated for brevity.
+>
