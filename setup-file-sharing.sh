@@ -1,3 +1,7 @@
+deluser xfs  # On Alpine, xfs has the UID Nextcloud expects www-data to have.
+addgroup -S -g 33 www-data
+adduser -S -H -g www-data -G www-data -h /var/www -u 33 www-data
+
 install -m750 -o www-data -g root -d /srv/cloud
 install -m755 -o root -g root -d /srv/media
 install -m755 -o root -g root -d /srv/public
