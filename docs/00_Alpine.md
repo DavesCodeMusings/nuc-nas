@@ -16,7 +16,7 @@ Here's how it works:
 
 1. Boot the alpine-extended.iso image
 2. Temporarily configure with a DHCP address.
-3. Fetch [setup-alpine.sh](https://gitea.anubis.home/pi/nuc-nas/src/branch/main/setup-alpine.sh)
+3. Fetch [setup-alpine.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-alpine.sh)
 4. Edit the script to customize.
 5. Run setup-alpine.sh.
 
@@ -29,32 +29,82 @@ To get the installation script, you need to be connected to the internet. To get
 In the example below, it's assumed you are using a wired connection to the network.
 
 ```
-alpine# setup-interfaces
-eth0
-dhcp
-none
-n
+localhost:~# setup-interfaces
+Available interfaces are: eth0.
+Enter '?' for help on bridges, bonding and vlans.
+Which one do you want to initialize? (or '?' or 'done') [eth0]
+Ip address for eth0? (or 'dhcp', 'none', '?') [dhcp]
+Ip address for wlan0? (or 'dhcp', 'none', '?') [dhcp] none
+Do you want to do any manual network configuration? (y/n) [n]
 
-alpine# ifup eth0
+localhost:~# ifup eth0
 ```
 
 ### Fetching and Customizing the Automation Script
-First, you'll need to get a copy of the [installation script](https://github.com/DavesCodeMusings/nucloud/blob/main/setup-alpine.sh) that generates the answer file. You can use wget.
+First, you'll need to get a copy of the [installation script](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-alpine.sh) that generates the answer file. You can use wget.
 
-Next, edit the script changing any of the variables at the top to match your setup. Alpine includes the vi editor with base image. If you're not a fan of vi, you can use the command `apk add nano` to install the nano editor.
+Next, edit the script changing any of the variables at the top to match your setup. Most of the variable names should be self-explanatory.
 
-Finally, run the script with `sh ./setup-alpine.sh`
+>Alpine includes the vi editor with base image. If you're not a fan of vi, you can use the command `apk add nano` to install the nano editor.
 
-Here's an example of the commands:
+Finally, run the script with `sh ./setup-alpine.sh` 
+
+As the script runs, you'll be asked to supply a root password and to confirm the hard drive installation. Everything else is automatic. When setup is finished, shut down the system and remove the installation media.
+
+Here's an example of a typical installation:
 ```
-alpine# wget https://github.com/DavesCodeMusings/nucloud/blob/main/setup-alpine.sh
-alpine# vi setup-alpine.sh
-alpine# sh ./setup-alpine.sh
+localhost:~# wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-alpine.sh
+Connecting to raw.githubusercontent.com (185.199.109.133:443)
+saving to 'setup-alpine.sh'
+setup-alpine.sh      100% |********************************|  1003  0:00:00 ETA
+'setup-alpine.sh' saved
+
+localhost:~# vi setup-alpine.sh
+KEYBOARD_LAYOUT=us   # First prompt when running setup-keymaps
+KEYBOARD_VARIANT=us  # Second prompt when running setup-keymaps
+HOSTNAME=alpine
+DOMAIN=home
+DNS=$(ip route show | awk '/^default/ { print $3 }')  # Assume the router (default gateway) also provides DNS.
+ROOT_SIZE=8192
+SWAP_SIZE=8192
+
+localhost:~# sh ./setup-alpine.sh
+ * Caching service dependencies ...                                   [ ok ]
+ * Setting keymap ...                                                 [ ok ]
+Changing password for root
+New password:
+Retype password:
+passwd: password for root changed by root
+ * Saving 4096 bits of creditable seed for next boot
+ * Starting busybox acpid ...                                         [ ok ]
+ * Starting busybox crond ...                                         [ ok ]
+ * service chronyd added to runlevel default
+ * Caching service dependencies ...                                   [ ok ]
+ * Starting chronyd ...                                               [ ok ]
+Added mirror dl-cdn.alpinelinux.org
+Updating repository indexes... done.
+ * service sshd added to runlevel default
+ * Starting sshd ...                                                  [ ok ]
+WARNING: The following disk(s) will be erased:
+  sda   (42.9 GB ATA      VBOX HARDDISK   )
+WARNING: Erase the above disk(s) and continue? (y/n) [n] y
+Creating file systems...
+mkfs.fat 4.2 (2021-01-31)
+Installing system on /dev/sda3:
+Installing for x86_64-efi platform.
+Installation finished. No error reported.
+100% ==>
+initramfs: creating /boot/initramfs-lts
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-lts
+Found initrd image: /boot/initramfs-lts
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+done
+
+Installation is complete. Please reboot.
 ```
-
-As the script runs, you'll be asked to supply a root password and to confirm the hard drive installation.
-
-When setup is finished, shut down the system and remove the installation media.
 
 ## Create a Non-Root User
 Even if you're the only user of the system, you're going to need an account besides root to log on with SSH. If you want to install sudo as well, this will give you an experience much like other Linux distributions. Alternatively, you can use the command `su -` to switch to the root account. The instructions below assume you'll be using sudo.
