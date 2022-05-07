@@ -11,13 +11,14 @@ Alpine Linux is small footprint OS and, like the NUC hardware, fits with the min
 ## Preparing Boot Media
 You'll need a bootable ISO image to install Alpine. Go to the [Alpine downloads](https://alpinelinux.org/downloads/) and get the exteneded image for x86_64. You can either burn it to a CD-ROM or write it to a USB flash drive. The Raspberry Pi Imager tool can be used for this if you choose _Use Custom_ as the OS image.
 
-## (Mostly) automated Alpine installation
+## (Mostly) Automated Alpine Installation
 Here's how it works:
 
 1. Boot the alpine-extended.iso image
 2. Temporarily configure with a DHCP address.
-3. Fetch [setup-alpine.sh](https://gitea.anubis.home/pi/nuc-nas/src/branch/main/setup-alpine.sh) using wget and a web server of your choice.
-4. Run setup-alpine.sh.
+3. Fetch [setup-alpine.sh](https://gitea.anubis.home/pi/nuc-nas/src/branch/main/setup-alpine.sh)
+4. Edit the script to customize.
+5. Run setup-alpine.sh.
 
 ### Disabling Secure Boot
 When booting the NUC, you will first need to disable secure boot in the setup. You can access the setup by pressing F2 just after powering up.
