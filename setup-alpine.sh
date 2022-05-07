@@ -2,7 +2,7 @@ KEYBOARD_LAYOUT=us
 KEYBOARD_VARIANT=us
 HOSTNAME=alpine
 DOMAIN=home
-DNS=192.168.0.1
+DNS=$(ip route show | awk '/^default/ { print $3 }')  # Assume the router (default gateway) also provides DNS.
 ROOT_SIZE=8192
 SWAP_SIZE=8192
 
