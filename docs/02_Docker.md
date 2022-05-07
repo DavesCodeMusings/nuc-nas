@@ -35,66 +35,7 @@ Writing superblocks and filesystem accounting information: done
 
 (1/62) Installing ca-certificates (20211220-r0)
 (2/62) Installing libseccomp (2.5.2-r0)
-(3/62) Installing runc (1.0.2-r2)
-(4/62) Installing containerd (1.5.11-r1)
-(5/62) Installing containerd-openrc (1.5.11-r1)
-(6/62) Installing libmnl (1.0.4-r2)
-(7/62) Installing libnftnl (1.2.1-r0)
-(8/62) Installing iptables (1.8.7-r1)
-(9/62) Installing iptables-openrc (1.8.7-r1)
-(10/62) Installing ip6tables (1.8.7-r1)
-(11/62) Installing ip6tables-openrc (1.8.7-r1)
-(12/62) Installing tini-static (0.19.0-r0)
-(13/62) Installing docker-engine (20.10.14-r1)
-(14/62) Installing docker-openrc (20.10.14-r1)
-(15/62) Installing docker-cli (20.10.14-r1)
-(16/62) Installing docker (20.10.14-r1)
-Executing docker-20.10.14-r1.pre-install
-(17/62) Installing libbz2 (1.0.8-r1)
-(18/62) Installing expat (2.4.7-r0)
-(19/62) Installing gdbm (1.22-r0)
-(20/62) Installing libgcc (10.3.1_git20211027-r0)
-(21/62) Installing libstdc++ (10.3.1_git20211027-r0)
-(22/62) Installing mpdecimal (2.5.1-r1)
-(23/62) Installing readline (8.1.1-r0)
-(24/62) Installing sqlite-libs (3.36.0-r0)
-(25/62) Installing python3 (3.9.7-r4)
-(26/62) Installing py3-ordered-set (4.0.2-r2)
-(27/62) Installing py3-appdirs (1.4.4-r2)
-(28/62) Installing py3-parsing (2.4.7-r2)
-(29/62) Installing py3-six (1.16.0-r0)
-(30/62) Installing py3-packaging (20.9-r1)
-(31/62) Installing py3-setuptools (52.0.0-r4)
-(32/62) Installing py3-cached-property (1.5.2-r1)
-(33/62) Installing py3-certifi (2020.12.5-r1)
-(34/62) Installing py3-chardet (4.0.0-r2)
-(35/62) Installing py3-distro (1.6.0-r0)
-(36/62) Installing dockerpy-creds (0.4.0-r2)
-(37/62) Installing py3-cparser (2.20-r1)
-(38/62) Installing py3-cffi (1.14.5-r2)
-(39/62) Installing py3-idna (3.3-r0)
-(40/62) Installing py3-asn1crypto (1.4.0-r1)
-(41/62) Installing py3-cryptography (3.3.2-r3)
-(42/62) Installing py3-ipaddress (1.0.23-r2)
-(43/62) Installing py3-charset-normalizer (2.0.7-r0)
-(44/62) Installing py3-urllib3 (1.26.7-r0)
-(45/62) Installing py3-requests (2.26.0-r1)
-(46/62) Installing py3-websocket-client (1.2.1-r2)
-(47/62) Installing docker-py (5.0.3-r0)
-(48/62) Installing py3-dockerpty (0.4.1-r3)
-(49/62) Installing py3-docopt (0.6.2-r6)
-(50/62) Installing py3-pyrsistent (0.18.0-r0)
-(51/62) Installing py3-attrs (21.2.0-r0)
-(52/62) Installing py3-jsonschema (4.2.1-r0)
-(53/62) Installing py3-asn1 (0.4.8-r1)
-(54/62) Installing py3-bcrypt (3.2.0-r4)
-(55/62) Installing py3-pynacl (1.4.0-r2)
-(56/62) Installing py3-paramiko (2.7.2-r1)
-(57/62) Installing py3-pysocks (1.7.1-r2)
-(58/62) Installing py3-dotenv (0.19.2-r0)
-(59/62) Installing yaml (0.2.5-r0)
-(60/62) Installing py3-yaml (5.4.1.1-r1)
-(61/62) Installing py3-texttable (1.6.4-r0)
+...
 (62/62) Installing docker-compose (1.29.2-r1)
 Executing busybox-1.34.1-r5.trigger
 Executing ca-certificates-20211220-r0.trigger
@@ -117,6 +58,8 @@ Status: Downloaded newer image for portainer/portainer-ce:latest
 Creating portainer ... done
 Visit http://alpine.home:9000 to configure Portainer
 ```
+
+> Some output has been truncated for brevity.
 
 ## Managing Containers with Portainer
 Configure Portainer by opening a web browser and visiting the DNS name or IP address of the NUC on port 9000. See the [official documentation](https://docs.portainer.io/) on how to get things set up.
