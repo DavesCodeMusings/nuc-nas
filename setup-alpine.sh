@@ -1,5 +1,5 @@
-KEYBOARD_LAYOUT=us
-KEYBOARD_VARIANT=us
+KEYBOARD_LAYOUT=us   # First prompt when running setup-keymaps
+KEYBOARD_VARIANT=us  # Second prompt when running setup-keymaps
 HOSTNAME=alpine
 DOMAIN=home
 DNS=$(ip route show | awk '/^default/ { print $3 }')  # Assume the router (default gateway) also provides DNS.
