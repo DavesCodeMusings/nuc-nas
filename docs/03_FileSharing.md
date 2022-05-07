@@ -1,5 +1,7 @@
 TODO
 
+[setup-file-sharing.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-file-sharing.sh)
+
 ```
 alpine:~# wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-file-sharing.sh
 Connecting to raw.githubusercontent.com (185.199.109.133:443)
