@@ -1,5 +1,5 @@
 # NuCloud
-NUC + Cloud = NuCloud
+_NUC + Cloud = NuCloud_
 
 Cloud services for home running on an inexpensive Celeron powered Intel NUC.
 
