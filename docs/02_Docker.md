@@ -1,4 +1,4 @@
-# Docker Container Runtime and Portainer Administration
+# Docker Community Edition and Portainer Community Edition
 
 TODO
 
