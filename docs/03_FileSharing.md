@@ -27,6 +27,6 @@ Creating nextcloud ... done
 >Some output has been truncated for brevity.
 >
 
-== Next Steps
+## Next Steps
 
 [LDAP](04_OpenLDAP.md)
