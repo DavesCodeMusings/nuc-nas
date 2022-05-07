@@ -1,6 +1,6 @@
 The first step in building a the system is to add RAM and a solid state disk (SSD) to the NUC. Intel provides a quickstart document with the NUC kit for that task. After that, it's time to install the operating system (OS). For that, we're using Alpine Linux. The Alpine Linux installation is scripted using an answer file.
 
-At the end of this step, you will have Alpine installed and ready to log into via secure shell (SSH) for the remaining installation steps.
+At the end of this step, you'll have Alpine installed and ready to log into via secure shell (SSH) for the remaining setup and customization.
 
 ## Can I Skip This?
 No. But, you can duplicate the process using a virtual machine if you like.
