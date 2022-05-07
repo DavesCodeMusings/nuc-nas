@@ -50,5 +50,7 @@ Configuring slapd service...
 
 ```
 
+## Configuring Applications to use LDAP Authentication
+
 ## Next Steps
 
