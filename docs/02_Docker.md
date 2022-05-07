@@ -118,8 +118,8 @@ Creating portainer ... done
 Visit http://alpine.home:9000 to configure Portainer
 ```
 
-== Managing Containers with Portainer
+## Managing Containers with Portainer
 Configure Portainer by opening a web browser and visiting the DNS name or IP address of the NUC on port 9000. See the [official documentation](https://docs.portainer.io/) on how to get things set up.
 
-== Next Steps ==
-With Docker, Docker Compose, and Portainer at your disposal, you're ready to get the NAS funtionality going with containers for [Nextcloud and Samba](03_file_sharing.md).
+## Next Steps
+With Docker, Docker Compose, and Portainer at your disposal, you're ready to get the NAS funtionality going with containers for [Nextcloud and Samba](03_FileSharing.md).
