@@ -76,4 +76,4 @@ visudo
 After running visudo, search for _wheel_ and uncomment one of the lines that allows members of the wheel group to run privileged commands.
 
 ## Next Steps
-With the basic OS installation complete, you're ready to move on to provisioning storage with the Linux [Logical Volume Manager (LVM)](01_LVM.md)
+With the basic OS installation complete, you're ready to move on to provisioning storage with the Linux [Logical Volume Manager (LVM)](01_LVM.md).
