@@ -144,7 +144,7 @@ root ALL=(ALL) ALL
 %wheel ALL=(ALL) NOPASSWD: ALL
 ```
 
-Notice how the line `%wheel ALL=(ALL) NOPASSWD: ALL` has been uncommented. This will let any user in the _wheel_ group use sudo without being prompted to enter their password.
+Notice how the line `%wheel ALL=(ALL) NOPASSWD: ALL` has been uncommented. This will let any user in the _wheel_ group (like dave) to use sudo without being prompted for their password.
 
 ## Next Steps
 With the basic OS installation complete, you're ready to move on to provisioning storage with the Linux [Logical Volume Manager (LVM)](01_LVM.md).
