@@ -11,7 +11,7 @@ Alpine Linux is small footprint OS and, like the NUC hardware, fits with the min
 ## Preparing Boot Media
 You'll need a bootable ISO image to install Alpine. Go to the [Alpine downloads](https://alpinelinux.org/downloads/) and get the exteneded image for x86_64. You can either burn it to a CD-ROM or write it to a USB flash drive. The Raspberry Pi Imager tool can be used for this if you choose _Use Custom_ as the OS image.
 
-## (Mostly) Automated Alpine Installation
+## Performing (Mostly) Automated Alpine Installation
 Here's how it works:
 
 1. Boot the alpine-extended.iso image
@@ -106,7 +106,7 @@ done
 Installation is complete. Please reboot.
 ```
 
-## Create a Non-Root User
+## Creating a Non-Root User Account
 Even if you're the only user of the system, you're going to need an account besides root to log on with SSH. If you want to install sudo as well, this will give you an experience much like other Linux distributions. Alternatively, you can use the command `su -` to switch to the root account. The instructions below assume you'll be using sudo.
 
 First, log into the system console as root.
