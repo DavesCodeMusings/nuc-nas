@@ -1,5 +1,5 @@
 # N&uuml;Cloud
-_NUC + Cloud = N&uuml;Cloud_ &mdash; Cloud services for home running on an inexpensive Celeron powered Intel NUC.
+_NUC + Cloud = N&uuml;Cloud_ &mdash; Cloud services for home running on an inexpensive Celeron-powered Intel NUC.
 
 This is a work in progress, but you can start here if you're interested, start here:
 
