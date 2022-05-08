@@ -28,8 +28,7 @@ Finally, run the script.
 Here's an example of how most people will proceed with this step:
 
 ```
-alpine:~# wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/s
-etup-lvm.sh
+alpine:~# wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-lvm.sh
 Connecting to raw.githubusercontent.com (185.199.108.133:443)
 saving to 'setup-lvm.sh'
 setup-lvm.sh         100% |********************************|   164  0:00:00 ETA
