@@ -47,9 +47,10 @@ Next, edit the script changing any of the variables at the top to match your set
 
 >Alpine includes the vi editor with base image. If you're not a fan of vi, you can use the command `apk add nano` to install the nano editor.
 
-Finally, run the script with `sh ./setup-alpine.sh` 
+### Running setup-alpine.sh
+With any customizing now done, you're ready to run the script by tying the command `sh ./setup-alpine.sh` 
 
-As the script runs, you'll be asked to supply a root password and to confirm the hard drive installation. Everything else is automatic. When setup is finished, shut down the system and remove the installation media.
+As the script runs, you'll be asked to supply a root password and to confirm the hard drive installation. Everything else is automatic. When setup is finished, shut down the system using the `poweroff` command and remove the installation media.
 
 Here's an example of a typical installation:
 ```
