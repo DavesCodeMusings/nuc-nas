@@ -8,7 +8,7 @@ version: "3"
 services:
   pihole:
     container_name: pihole
-    hostname: pihole.$(hostname)
+    hostname: pihole-docker.$(hostname)
     image: pihole/pihole:latest
     # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
     ports:
