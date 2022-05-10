@@ -1,5 +1,5 @@
-NETADDR = ipcalc -n $(ip route show | awk '/eth0 scope link/ { print $1 }') | awk -F= '{ print $2 }'
-NETMASK = ipcalc -m $(ip route show | awk '/eth0 scope link/ { print $1 }') | awk -F= '{ print $2 }'
+NETADDR=$(ipcalc -n $(ip route show | awk '/eth0 scope link/ { print $1 }') | awk -F= '{ print $2 }')
+NETMASK=$(ipcalc -m $(ip route show | awk '/eth0 scope link/ { print $1 }') | awk -F= '{ print $2 }')
 
 apk add monit
 
