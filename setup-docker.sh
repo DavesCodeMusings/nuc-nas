@@ -7,6 +7,7 @@ mkfs.ext4 /dev/${VOL_GROUP}/docker
 mkdir /var/lib/docker
 echo "/dev/${VOL_GROUP}/docker /var/lib/docker ext4 rw 1 1" >>/etc/fstab
 mount /var/lib/docker
+
 apk add docker docker-compose
 rc-update add docker
 service docker start
