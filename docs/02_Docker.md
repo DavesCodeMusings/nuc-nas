@@ -1,12 +1,35 @@
 # Docker Community Edition and Portainer Community Edition
+Docker provides a way to run applications as containers.
 
-TODO
+At the end of this step, you will have:
+* Created a logical volume to store things related to Docker.
+* Installed Docker Community Edition and Docker Compose.
+* Started the Portainer administration tool as your first Docker container.
 
-[setup_docker.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-docker.sh)
+## Can I skip it?
+If you would rather install applications using APK packages, you can certainly skip this step and do it that way.
 
+## Why Docker Community Edition?
+There are several container management tools available these days. Docker was one of the first and has a good support structure around it. It's also relatively simple to install and understand, making it well suited for a small home network.
+
+## Understanding the Scripted Install
+The [setup_docker.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-docker.sh) script is going to do three things for you.
+
+1. Create a logical volume that will be mounted on /var/lib/docker (this is where Docker stores nearly everything and storage needs can grow.)
+2. Install Docker Community Edition and Docker Compose from APK packages and start the Docker service.
+3. Create a Docker Compose project for Portainer (a Docker web-based admin tool) and start it up.
+
+If you already have Portainer running in your environment, there is an option in the script to install the Portainer Agent rather than the full administrative tool.
+
+## Running setup-docker.sh
+First, download the [setup_docker.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-docker.sh) using wget.
+
+Next, edit and make any neccessary customizations to the VOL_SIZE, VOL_GROUP and AGENT_ONLY variables. If you haven't made any changes in the installation steps thus far, you can probably leave these as-is without any problems.
+
+Finally, run the script.
 If things go well, there's nothing to do but sit back and watch the install messages go by.
 
-Here's a sample using all the default values:
+Here's a sample of what you might see using all the default values:
 
 ```
 alpine:~# wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-docker.sh
