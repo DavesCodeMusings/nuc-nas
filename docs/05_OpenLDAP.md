@@ -1,8 +1,44 @@
 # OpenLDAP for Centralized Authentication
+In this step, OpenLDAP is configured to serve as a centralized login and password authority for applications. Portainer, Nextcloud, and Gitea can all be configured to use LDAP authetication. Many other applications you might install support LDAP as well.
 
-TODO
+At the end of this step, you will have:
+* Installed the OpenLDAP APK along with backend and client packages.
+* Configured the LDAP database to match your network's DNS name.
+* Configured OpenLDAP to support the schema used with Linux style user accounts.
 
-[setup-openldap.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-openldap.sh)
+## Can I skip it?
+Yes, you can configure separate username and passwords for each application if you like.
+
+## Why OpenLDAP?
+OpenLDAP has been around for a long time and is well documented. For a simple home network setup, the configuration is relatively straightforward.
+
+>Unfortunately, there is no official OpenLDAP container image on Docker Hub, so installation will be done with APK pacakges.
+
+## Understanding the Scripted Install
+[setup-openldap.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-openldap.sh) automates the following tasks:
+1. Install OpenLDAP and related APKs.
+2. Adjust the Alpine settings for the OpenLDAP package to conform to more recent versions of OpenLDAP.
+3. Customize the initial configuration import file (slapd.ldif) to match the DNS domain.
+4. Add the schema required for Linux-style user accounts.
+5. Configure the service to start when the system comes up.
+
+There is one important configuration setting in the setup-openldap.sh script.
+
+** You must change the DOMAIN="dc=home" line to match your DNS domain. **
+
+LDAP domains are compatible with DNS domains, but are not specified in the same dotted notation. LDAP uses the _dc=_ notation a domain component. So instead of chaining together sub-domain, domain, and top-level domain with dots like DNS, you use dc= and separate with commas. Perhaps the best way to understand the difference is with a few examples.
+
+* _biz.contoso.com_ becomes _dc=biz,dc=contoso,dc=com_
+* _myfamilyname.net_ becomes _dc=myfamilyname,dc=net_
+* _home_ becomes _dc=home_
+
+_dc=home_ is the default for the DOMAIN variable in the setup script. It was chosen because .home is a reserved top-level domain name for private networks. Much like the IP address space of 192.168.x.x, the .home top-level domain is specified in [RFC-6762](https://www.rfc-editor.org/rfc/rfc6762#appendix-G) as something that will never be used on the internet and is therefore safe to use on private networks.
+
+Using this scheme, you would give your hosts names like server1.home or nas.home, and the corresponding LDAP domain would be dc=home.
+
+## Running setup-ldap.sh
+
+When the automated installation steps run, the output should be similar to what is shown below.
 
 ```
 alpine:~# wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/s
@@ -52,5 +88,8 @@ Configuring slapd service...
 
 ## Configuring Applications to use LDAP Authentication
 
+TODO
+
 ## Next Steps
 
+TODO
