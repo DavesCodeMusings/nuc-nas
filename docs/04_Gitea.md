@@ -55,7 +55,20 @@ Visit http://alpine.home:3000 to configure Gitea
 >Output has been truncated for brevity.
 
 ## Configuring Via the Web Interface
-TODO
+The first time Gitea is run, you'll be taken to a configuration page for the application. Many options are dependent on your particular needs, but there are a handful that should be changed to fit the way Gitea was installed.
+
+* Repository Root Path: /srv/git
+* Git LFS Root Path: (delete path to disable)
+* Server Domain: your.server.dns
+* SSH Server Port: (delete port number to disable)
+* Gitea Base URL: http://your.server.dns:3000/
+
+> Obviously, you'll want to replace _your.server.dns_ with the actual DNS name or IP address of your host.
+
+[Gitea documentation](https://docs.gitea.io/) provides more detailed configuration assistance.
+
+## Integrating Gitea with Portainer
+There is a feature in Portainer that lets you control your Docker Compose projects from the Portainer interface and retrieve your docker-compose.yml from a Git repository. Gitea can provide this repository. Portainer can further be configured with webhooks to redeploy a Docker Compose project anytime the Git repository holding the docker-compose.yml is updated.
 
 ## Next Steps
 TODO
