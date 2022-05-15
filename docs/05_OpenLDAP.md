@@ -12,7 +12,7 @@ Yes, you can configure separate username and passwords for each application if y
 ## Why OpenLDAP?
 OpenLDAP has been around for a long time and is well documented. For a simple home network setup, the configuration is relatively straightforward.
 
->Unfortunately, there is no official OpenLDAP container image on Docker Hub, so installation will be done with APK pacakges.
+>Unfortunately, there is no official OpenLDAP container image on Docker Hub. The only well-maintained container image looks to be more complex to configure than Alpine's APK packages.
 
 ## Understanding the Scripted Install
 [setup-openldap.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-openldap.sh) automates the following tasks:
