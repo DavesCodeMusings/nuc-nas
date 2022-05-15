@@ -1,3 +1,11 @@
+VOL_SIZE=10G
+VOL_GROUP=vg0
+
+lvcreate -n srv -L ${VOL_SIZE} ${VOL_GROUP}
+mkfs.ext4 /dev/${VOL_GROUP}/srv
+echo "/dev/${VOL_GROUP}/srv /srv ext4 rw 1 1" >>/etc/fstab
+mount /srv
+
 deluser xfs  # On Alpine, xfs has the UID Nextcloud expects www-data to have.
 addgroup -S -g 33 www-data
 adduser -S -H -g www-data -G www-data -h /var/www -u 33 www-data
