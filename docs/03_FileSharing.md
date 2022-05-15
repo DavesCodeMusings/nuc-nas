@@ -1,7 +1,20 @@
-TODO
+In this step, Nextcloud and Samba are both configured to run as Docker containers using a single Docker Compose project. Both applications share files, a core component of any NAS device.
 
+By the end of this step, you will have:
+* Created a logical volume for file storage.
+* Created a Docker Compose project for Nextcloud and Samba containers.
+* Started the containers in the Docker Project.
+
+## Can I skip it?
+You could skip this step if you don't want to share files, or you could modify the Docker Compose project to only install one of the two file sharing containers.
+
+## Why Nextcloud and Samba
+Both Nextcloud and Samba share files, but the do it differently. The Nextcloud approach is to offer files on a variety of platforms including PC, mobile, and web-based. Samba is more of a map a drive letter to a server share sort of model. Both have their advantages.
+
+## Understanding the Scripted Install
 [setup-file-sharing.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-file-sharing.sh)
 
+## Running setup-file-sharing.sh
 ```
 alpine:~# wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-file-sharing.sh
 Connecting to raw.githubusercontent.com (185.199.109.133:443)
