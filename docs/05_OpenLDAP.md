@@ -1,5 +1,5 @@
 # OpenLDAP for Centralized Authentication
-In this step, OpenLDAP is configured to serve as a centralized login and password authority for applications. Portainer, Nextcloud, and Gitea can all be configured to use LDAP authetication. Many other applications you might install support LDAP as well.
+In this step, OpenLDAP is configured to serve as a centralized login and password authority for applications. Portainer, Nextcloud, and Gitea can all be configured to use LDAP authetication. Many other applications you might choose to install will support LDAP as well.
 
 At the end of this step, you will have:
 * Installed the OpenLDAP APK along with backend and client packages.
