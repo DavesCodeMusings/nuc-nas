@@ -8,7 +8,7 @@ By the end of this step, you will have:
 ## Can I skip it?
 You could skip this step if you don't want to share files, or you could modify the Docker Compose project to only install one of the two file sharing containers.
 
-## Why Nextcloud and Samba
+## Why Nextcloud and Samba?
 Both Nextcloud and Samba share files, but the do it differently. The Nextcloud approach is to store and replicate files on a variety of platforms including PC, mobile, and web-based. Samba is more of a map a drive letter to a central server share sort of model. Both have their advantages.
 
 ## Understanding the Scripted Install
