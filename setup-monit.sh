@@ -1,5 +1,17 @@
-NETADDR=$(ipcalc -n $(ip route show | awk '/eth0 scope link/ { print $1 }') | awk -F= '{ print $2 }')
-NETMASK=$(ipcalc -m $(ip route show | awk '/eth0 scope link/ { print $1 }') | awk -F= '{ print $2 }')
+# Set INTERFACE for auto-detection. Set NETADDR and NETMASK for manual.
+INTERFACE=eth0
+#NETADDR='192.168.1.0'
+#NETMASK='255.255.255.0'
+
+if [ "$NETADDR" == "" ] || [ "$NETMASK" == "" ]; then
+  echo "Detecting network configuration for device ${INTERFACE}..."
+  NETCIDR=$(ip route show | grep "dev ${INTERFACE} scope link" | cut -d' ' -f1)
+  NETADDR=$(ipcalc -n $NETCIDR 2>/dev/null | cut -d= -f2)
+  NETMASK=$(ipcalc -m $NETCIDR 2>/dev/null | cut -d= -f2)
+  if [ "$NETADDR" == "" ] || [ $NETMASK == "" ]; then
+    echo "Unable to determine network address and mask for ${INTERFACE}"
+  fi
+fi
 
 apk add monit
 
