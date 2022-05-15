@@ -12,9 +12,22 @@ You could skip this step if you don't want to share files, or you could modify t
 Both Nextcloud and Samba share files, but the do it differently. The Nextcloud approach is to store and replicate files on a variety of platforms including PC, mobile, and web-based. Samba is more of a map a drive letter to a central server share sort of model. Both have their advantages.
 
 ## Understanding the Scripted Install
-[setup-file-sharing.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-file-sharing.sh)
+The [setup-file-sharing.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-file-sharing.sh) will perform three tasks.
+1. Create a logical volume to mount on /srv
+2. Create directories under /srv for Nexclound and Samba to use.
+3. Create the Docker Compose project and start the services.
+
+Like the other scripts, there are variables at the top for customization. The VOL_SIZE variable specifies the initial size of the logical volume. It is intentionally size on the small side. If you have a lot of files, may want to increase it at the outset, or you can use `lvextend` to do it later.
+
+> /srv was chosen based on the [Linux Filesystem Hierarchy's](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s17.html) recommendations for "data for services provided by this system".
 
 ## Running setup-file-sharing.sh
+First, download [setup-file-sharing.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-file-sharing.sh) using wget.
+
+Next, edit and make any neccessary customizations to the VOL_SIZE and VOL_GROUP. Recall that the default VOL_SIZE is rather small and may need to be increased.
+
+Finally, run the script. If things go as expected, it should look something like this:
+
 ```
 alpine:~# wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-file-sharing.sh
 Connecting to raw.githubusercontent.com (185.199.109.133:443)
