@@ -34,7 +34,7 @@ LDAP domains are compatible with DNS domains, but are not specified in the same 
 
 _dc=home_ is the default for the DOMAIN variable in the setup script. It was chosen because .home is a reserved top-level domain name for private networks. Much like the IP address space of 192.168.x.x, the .home top-level domain is specified in [RFC-6762](https://www.rfc-editor.org/rfc/rfc6762#appendix-G) as something that will never be used on the internet and is therefore safe to use on private networks.
 
-Using this scheme, you would give your hosts names like server1.home or nas.home, and the corresponding LDAP domain would be dc=home.
+Using this naming convention, you would give your hosts names like server1.home or nas.home, and the corresponding LDAP domain would be dc=home.
 
 ## Running setup-ldap.sh
 
