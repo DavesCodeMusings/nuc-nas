@@ -23,7 +23,7 @@ Here's how it works:
 ### Disabling Secure Boot
 When booting the NUC, you will first need to disable secure boot in the setup. You can access the setup by pressing F2 just after powering up.
 
-### Configuring Alpine with a DHCP Address
+### Configuring Alpine with a Temporary DHCP Address
 To get the installation script, you need to be connected to the internet. To get connected you'll need an IP address. The Alpine boot image has a script called _setup-interfaces_ that performs this task. All you need to do is run _setup_interfaces_, answer a few questions. Once you do that and bring the interface up, you'll be connected to your LAN.
 
 In the example below, it's assumed you are using a wired connection to the network.
