@@ -44,3 +44,4 @@ rc-update add monit
 monit -t && service monit start
 
 echo "See https://mmonit.com/wiki/ for configuration examples."
+echo "https://mmonit.com/wiki/Monit/EnableSSLInMonit for SSL."
