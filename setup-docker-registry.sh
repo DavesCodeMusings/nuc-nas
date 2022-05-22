@@ -44,6 +44,7 @@ echo "Configuring Docker to trust registry TLS cert..."
 cp ${TLS_CA} /etc/docker/certs.d/${HOSTNAME}:${REGISTRY_PORT}/ca.crt
 
 cat <<EOF
+
 List registry contents with:
   curl -k https://${HOSTNAME}:${REGISTRY_PORT}/v2/_catalog
 
