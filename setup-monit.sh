@@ -42,10 +42,8 @@ if space usage > 80% then alert
 EOF
 
 echo "Starting monit"
-monit -t && service monit start
-
-echo "Configuring monit to start at boot"
 rc-update add monit
+monit -t && service monit start
 
 echo "See https://mmonit.com/wiki/ for configuration examples."
 echo "https://mmonit.com/wiki/Monit/EnableSSLInMonit for SSL."
