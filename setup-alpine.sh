@@ -6,10 +6,10 @@ DNS=$(ip route show | awk '/^default/ { print $3 }')  # Assume the router (defau
 ROOT_SIZE=8192
 SWAP_SIZE=8192
 
-# Disable forcing EFI partition to 512M.
+# Disable forcing EFI partition to 512M. See https://gitlab.alpinelinux.org/alpine/alpine-conf/-/issues/10512
 sed -i /BOOT_SIZE=512/d /sbin/setup-disk
 
-# Answer file is customized using variables set above.
+echo "Creating answerfile for /sbin/setup-alpine"
 cat << EOF > answerfile.txt
 KEYMAPOPTS="${KEYBOARD_LAYOUT} ${KEYBOARD_VARIANT}"
 HOSTNAMEOPTS="-n ${HOSTNAME}.${DOMAIN}"
@@ -29,6 +29,7 @@ NTPOPTS="-c chrony"
 DISKOPTS="-m sys /dev/sda"
 EOF
 
+echo "Running /sbin/setup-alpine"
 export ROOT_SIZE
 export SWAP_SIZE
 setup-alpine -f answerfile.txt
