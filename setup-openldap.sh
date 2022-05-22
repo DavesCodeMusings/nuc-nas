@@ -1,4 +1,4 @@
-export DOMAIN="dc=home"
+export OPENLDAP_DOMAIN="dc=home"
 
 echo "Installing packages"
 apk add openldap openldap-back-mdb openldap-clients
@@ -11,10 +11,10 @@ sed -i~ \
   /etc/conf.d/slapd
 rm /etc/openldap/slapd.conf
 
-echo "Configuring for domain: ${DOMAIN}"
+echo "Configuring for domain: ${OPENLDAP_DOMAIN}"
 sed -i~ \
   -e 's/\.la$/.so/' \
-  -e "s/dc=my-domain,dc=com/${DOMAIN}/" /etc/openldap/slapd.ldif
+  -e "s/dc=my-domain,dc=com/${OPENLDAP_DOMAIN}/" /etc/openldap/slapd.ldif
 
 echo "Adding schema for Linux user accounts"
 cp /etc/openldap/slapd.ldif /etc/openldap/slapd.ldif~1
