@@ -1,23 +1,28 @@
 VOL_SIZE=10G
 VOL_GROUP=vg0
 
+echo "Creating compose project directory"
+mkdir -p /var/lib/docker/compose/file-sharing || exit 1
+cd /var/lib/docker/compose/file-sharing || exit 2
+
+echo "Creating logical volume /dev/${VOL_GROUP}/srv"
 lvcreate -n srv -L ${VOL_SIZE} ${VOL_GROUP}
 mkfs.ext4 /dev/${VOL_GROUP}/srv
 echo "/dev/${VOL_GROUP}/srv /srv ext4 rw 1 1" >>/etc/fstab
 mount /srv
 
-deluser xfs  # On Alpine, xfs has the UID Nextcloud expects www-data to have.
-addgroup -S -g 33 www-data
-adduser -S -H -g www-data -G www-data -h /var/www -u 33 www-data
-
+echo "Creating directories for user file storage"
 install -m750 -o www-data -g root -d /srv/cloud
 install -m755 -o root -g root -d /srv/media
 install -m755 -o root -g root -d /srv/public
 install -m777 -o root -g root -d /srv/shared
 
-mkdir /var/lib/docker/compose/file-sharing || exit 1
-cd /var/lib/docker/compose/file-sharing || exit 2
+echo "Creating Nextcloud application user and group"
+deluser xfs  # On Alpine, xfs has the UID Nextcloud expects www-data to have.
+addgroup -S -g 33 www-data
+adduser -S -H -g www-data -G www-data -h /var/www -u 33 www-data
 
+echo "Creating compose file"
 cat <<EOF >docker-compose.yml
 services:
     nextcloud:
@@ -47,4 +52,5 @@ volumes:
     nextcloud:
 EOF
 
+echo "Starting file sharing services"
 docker-compose up -d
