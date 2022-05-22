@@ -13,8 +13,10 @@ if [ "$NETADDR" == "" ] || [ "$NETMASK" == "" ]; then
   fi
 fi
 
+echo "Installing packages"
 apk add monit
 
+echo "Configuring monit"
 sed -i~ \
   -e 's/^# set pidfile/set pidfile/' \
   -e 's/^# set idfile/set idfile/' \
@@ -39,9 +41,11 @@ check device root with path /
 if space usage > 80% then alert
 EOF
 
-rc-update add monit
-
+echo "Starting monit"
 monit -t && service monit start
+
+echo "Configuring monit to start at boot"
+rc-update add monit
 
 echo "See https://mmonit.com/wiki/ for configuration examples."
 echo "https://mmonit.com/wiki/Monit/EnableSSLInMonit for SSL."
