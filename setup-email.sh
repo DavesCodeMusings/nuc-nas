@@ -1,8 +1,11 @@
+echo "Fixing permissions on /var/mail"
 chgrp mail /var/mail
 chmod 2775 /var/mail
 
-apk add exim mailx
+echo "Installing packages"
+apk add exim mailx dovecot
 
+echo "Configuring exim"
 sed -i~ \
   -e 's/# group = mail/  group = mail/' \
   -e 's/# mode = 0660/  mode = 0660/' \
@@ -10,15 +13,12 @@ sed -i~ \
 
 ln -s mail/aliases /etc/aliases
 
+echo "Starting exim"
 rc-update add exim
 service exim start
 
-
-
-apk add dovecot
-
+echo "Configuring Dovecot"
 mv /etc/dovecot/dovecot.conf /etc/dovecot/dovecot.conf~
-
 cat <<EOF > /etc/dovecot/dovecot.conf
 listen = *
 log_path = /var/log/dovecot.log
@@ -40,13 +40,14 @@ ssl_cert=</etc/ssl/dovecot/server.pem
 ssl_key=</etc/ssl/dovecot/server.key
 EOF
 
+echo "Setting up IMAP user credential store"
 touch /etc/dovecot/passwd
 chown root:dovecot /etc/dovecot/passwd
 chmod 640 /etc/dovecot/passwd
 
+echo "Starting Dovecot"
 service dovecot start
 rc-update add dovecot
 
 echo "Create user passwords with: doveadm pw -s sha512-crypt"
 echo "Add them to /etc/dovecot/passwd like this: username:password
-
