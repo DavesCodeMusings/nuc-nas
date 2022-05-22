@@ -2,19 +2,24 @@ VOL_SIZE=10G
 VOL_GROUP=vg0
 AGENT_ONLY=no
 
+echo "Creating compose project directory"
+mkdir -p /var/lib/docker/compose/portainer || exit 2
+
+echo "Creating logical volume /dev/${VOL_GROUP}/docker"
 lvcreate -n docker -L ${VOL_SIZE} ${VOL_GROUP}
 mkfs.ext4 /dev/${VOL_GROUP}/docker
 mkdir /var/lib/docker
 echo "/dev/${VOL_GROUP}/docker /var/lib/docker ext4 rw 1 1" >>/etc/fstab
 mount /var/lib/docker
 
+echo "Installing packages"
 apk add docker docker-compose
 rc-update add docker
 service docker start
 
+echo "Creating compose file"
 if [ "$AGENT_ONLY" == "no" ]; then
-  mkdir -p /var/lib/docker/compose/portainer
-  cat <<EOF >/var/lib/docker/compose/portainer/docker-compose.yml
+  cat <<EOF >/var/lib/docker/compose/portainer/compose.yml
 services:
     portainer:
         image: portainer/portainer-ce
@@ -32,13 +37,9 @@ services:
 volumes:
     data:
 EOF
-  cd /var/lib/docker/compose/portainer
-  docker-compose up -d
-  echo "Visit http://$(hostname):9000 to configure Portainer"
 
 else
-  mkdir -p /var/lib/docker/compose/agent
-  cat <<EOF >/var/lib/docker/compose/agent/docker-compose.yml
+  cat <<EOF >/var/lib/docker/compose/portainer/compose.yml
 services:
   portainer-agent:
     image: portainer/agent
@@ -49,6 +50,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/lib/docker/volumes:/var/lib/docker/volumes
 EOF
-  cd /var/lib/docker/compose/agent
-  docker-compose up -d
 fi
+
+echo "Starting Portainer"
+cd /var/lib/docker/compose/portainer
+docker-compose up -d
+
+echo "Visit http://$(hostname):9000 to configure Portainer"
