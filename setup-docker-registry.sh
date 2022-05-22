@@ -26,7 +26,7 @@ services:
             - REGISTRY_HTTP_TLS_CERTIFICATE=${TLS_CERT}
             - REGISTRY_HTTP_TLS_KEY=${TLS_KEY}
         ports:
-            - 5000:5000
+            - ${REGISTRY_PORT}:5000
         restart: unless-stopped
         volumes:
             - /etc/localtime:/etc/localtime:ro
