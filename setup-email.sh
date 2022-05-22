@@ -46,8 +46,8 @@ chown root:dovecot /etc/dovecot/passwd
 chmod 640 /etc/dovecot/passwd
 
 echo "Starting Dovecot"
-service dovecot start
 rc-update add dovecot
+service dovecot start
 
 echo "Create user passwords with: doveadm pw -s sha512-crypt"
 echo "Add them to /etc/dovecot/passwd like this: username:password
