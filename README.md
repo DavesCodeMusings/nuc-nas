@@ -11,4 +11,6 @@ ___
 
 _Celeron and Intel are [trademarks of Intel Corporation or its subsidiaries](https://www.intel.com/content/www/us/en/legal/trademarks.html)._
 
+_Raspberry Pi is a [trademark of Raspberry Pi Ltd](https://www.raspberrypi.com/trademark-rules/)_
+
 _N&uuml;Cloud is a portmanteau of NUC and cloud with an [umlaut thrown in for good measure](https://en.wikipedia.org/wiki/Metal_umlaut)._
