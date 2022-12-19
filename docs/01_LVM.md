@@ -11,7 +11,7 @@ By the ends of this step, you will have:
 You can certainly create your own disk layout if you want. Alternatives to using LVM include creating traditional partitions or simply expanding the root partition to use the remaining space on the SSD.
 
 ## Why LVM?
-LVM has advantages in flexability. It's generally easier to resize logical volumes than traditional partitions. This makes it less critical to size the disks correctly from the outset. With LVM, you simply allocate the minimum space you need now, knowing you can expand it in the future.
+LVM has advantages in flexibility. It's generally easier to resize logical volumes than traditional partitions. This makes it less critical to size the disks correctly from the outset. With LVM, you simply allocate the minimum space you need now, knowing you can expand it in the future.
 
 ## Understanding the Scripted Install
 The installation script, [setup-lvm.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-lvm.sh), expects that you'll be using partition /dev/sda4 for LVM. If you have a more complex setup, there are variables at the top of the script that you can customize. Though for a single disk Alpine install, you shouldn't need to change anything.
