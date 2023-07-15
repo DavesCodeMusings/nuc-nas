@@ -25,7 +25,7 @@ Next, edit and make any neccessary customizations to the LVM_DISK and LVM_PART v
 
 Finally, run the script.
 
-During the interactive portion of the install, you need to create an LVM type partition in the free space area of the disk.
+During the interactive partitioning with cfdisk, you'll need to create an LVM type partition in the free space area of the disk.
 
 Here's an example of how most people will proceed with this step:
 
