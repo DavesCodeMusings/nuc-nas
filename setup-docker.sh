@@ -19,7 +19,7 @@ service docker start
 echo "Creating compose project directory"
 mkdir -p /var/lib/docker/compose/portainer || exit 3
 
-echo "Creating compose file"
+echo "Creating Portainer compose file"
 if [ "$AGENT_ONLY" == "no" ]; then
   cat <<EOF >/var/lib/docker/compose/portainer/compose.yml
 services:
