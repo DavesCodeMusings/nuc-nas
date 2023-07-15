@@ -8,7 +8,6 @@ mkdir -p /var/lib/docker/compose/portainer || exit 2
 echo "Creating logical volume /dev/${VOL_GROUP}/docker"
 lvcreate -n docker -L ${VOL_SIZE} ${VOL_GROUP}
 mkfs.ext4 /dev/${VOL_GROUP}/docker
-mkdir /var/lib/docker
 echo "/dev/${VOL_GROUP}/docker /var/lib/docker ext4 rw 1 1" >>/etc/fstab
 mount /var/lib/docker
 
