@@ -97,4 +97,4 @@ Links to the various application configuration instructions are listed below.
 
 ## Next Steps
 
-TODO
+OpenLDAP is very command-line intensive and perhaps not the easiest of software to grasp. Searching the net for "openldap import ldif" can give you some hints on how to bulk add users and groups to the LDAP directory. There's also a rather old tool for Windows called [LDAP Admin](http://www.ldapadmin.org/) that offers a graphical user interface to the LDAP directory.
