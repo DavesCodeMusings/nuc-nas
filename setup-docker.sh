@@ -2,8 +2,8 @@ VOL_SIZE=10G
 VOL_GROUP=vg0
 AGENT_ONLY=no
 
-echo "Creating compose project directory"
-mkdir -p /var/lib/docker/compose/portainer || exit 2
+echo "Creating docker directory"
+mkdir -p /var/lib/docker || exit 2
 
 echo "Creating logical volume /dev/${VOL_GROUP}/docker"
 lvcreate -n docker -L ${VOL_SIZE} ${VOL_GROUP}
@@ -15,6 +15,9 @@ echo "Installing packages"
 apk add docker docker-compose
 rc-update add docker
 service docker start
+
+echo "Creating compose project directory"
+mkdir -p /var/lib/docker/compose/portainer || exit 3
 
 echo "Creating compose file"
 if [ "$AGENT_ONLY" == "no" ]; then
