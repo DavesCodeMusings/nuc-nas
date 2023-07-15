@@ -69,6 +69,10 @@ OK: 1191 MiB in 225 packages
  * /var/log/docker.log: creating file
  * /var/log/docker.log: correcting owner
  * Starting Docker Daemon ...                                         [ ok ]
+Creating compose project directory
+Creating Portainer compose file
+Waiting for docker socket...
+Starting Portainer
 Creating network "portainer_default" with the default driver
 Creating volume "portainer_data" with default driver
 Pulling portainer (portainer/portainer-ce:)...
