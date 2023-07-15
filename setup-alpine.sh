@@ -28,6 +28,7 @@ DISKOPTS="-m sys /dev/sda"
 EOF
 
 echo "Running /sbin/setup-alpine"
+export BOOT_SIZE
 export ROOT_SIZE
 export SWAP_SIZE
 setup-alpine -f answerfile.txt
