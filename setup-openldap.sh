@@ -16,10 +16,6 @@ sed -i~ \
   -e 's/\.la$/.so/' \
   -e "s/dc=my-domain,dc=com/${OPENLDAP_DOMAIN}/" /etc/openldap/slapd.ldif
 
-echo "Adding schema for Linux user accounts"
-cp /etc/openldap/slapd.ldif /etc/openldap/slapd.ldif~1
-awk '{ print } /^include:/ { sub("core", "cosine", $0); print $0; sub("cosine", "inetorgperson"); print $0; sub("inetorgperson", "nis"); print  }' /etc/openldap/slapd.ldif~1 >/etc/openldap/slapd.ldif
-
 echo "Importing configuration"
 slapadd -n 0 -F /etc/openldap/slapd.d -l /etc/openldap/slapd.ldif
 chown -R ldap:ldap /etc/openldap/slapd.d/*
