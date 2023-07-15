@@ -81,13 +81,19 @@ ROOT_SIZE=8192
 SWAP_SIZE=8192
 
 localhost:~# sh ./setup-alpine.sh
+Creating answerfile for /sbin/setup-alpine
+Running /sbin/setup-alpine
  * Caching service dependencies ...                                   [ ok ]
  * Setting keymap ...                                                 [ ok ]
 Changing password for root
 New password:
 Retype password:
 passwd: password for root changed by root
- * Saving 4096 bits of creditable seed for next boot
+ * Starting networking ...
+ *   lo ...                                                           [ ok ]
+ *   eth0 ...                                                         [ ok ]
+ * Seeding random number generator ...
+ * Saving 256 bits of creditable seed for next boot                   [ ok ]
  * Starting busybox acpid ...                                         [ ok ]
  * Starting busybox crond ...                                         [ ok ]
  * service chronyd added to runlevel default
@@ -95,10 +101,10 @@ passwd: password for root changed by root
  * Starting chronyd ...                                               [ ok ]
 Added mirror dl-cdn.alpinelinux.org
 Updating repository indexes... done.
- * service sshd added to runlevel default
+Setup a user? (enter a lower-case loginname, or 'no') [no]
  * Starting sshd ...                                                  [ ok ]
 WARNING: The following disk(s) will be erased:
-  sda   (42.9 GB ATA      VBOX HARDDISK   )
+  sda   (25.8 GB ATA      VBOX HARDDISK   )
 WARNING: Erase the above disk(s) and continue? (y/n) [n] y
 Creating file systems...
 mkfs.fat 4.2 (2021-01-31)
@@ -116,6 +122,7 @@ Check GRUB_DISABLE_OS_PROBER documentation entry.
 done
 
 Installation is complete. Please reboot.
+Remove installation media and type 'restart'
 ```
 
 ## Creating a Non-Root User Account
