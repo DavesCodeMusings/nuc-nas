@@ -88,7 +88,12 @@ Configuring slapd service...
 
 ## Configuring Applications to use LDAP Authentication
 
-TODO
+Each application will be slightly different in the way it's configured, but the basic information required is the same.
+
+Links to the various application configuration instructions are listed below.
+* [Portainer](https://docs.portainer.io/admin/settings/authentication/ldap)
+* [Nextcloud](https://docs.nextcloud.com/server/19/admin_manual/configuration_user/user_auth_ldap.html)
+* [Gitea](https://docs.gitea.com/next/usage/authentication)
 
 ## Next Steps
 
