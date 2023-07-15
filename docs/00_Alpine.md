@@ -37,6 +37,8 @@ To get the installation script, you need to be connected to the internet. To get
 In the example below, it's assumed you are using a wired connection to the network.
 
 ```
+localhost login: root
+Welcome to Alpine!
 localhost:~# setup-interfaces
 Available interfaces are: eth0.
 Enter '?' for help on bridges, bonding and vlans.
