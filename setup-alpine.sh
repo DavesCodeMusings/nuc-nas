@@ -3,11 +3,9 @@ KEYBOARD_VARIANT=us  # Second prompt when running setup-keymaps
 HOSTNAME=alpine
 DOMAIN=home
 DNS=$(ip route show | awk '/^default/ { print $3 }')  # Assume the router (default gateway) also provides DNS.
+BOOT_SIZE=100
 ROOT_SIZE=8192
 SWAP_SIZE=8192
-
-# Disable forcing EFI partition to 512M. See https://gitlab.alpinelinux.org/alpine/alpine-conf/-/issues/10512
-sed -i /BOOT_SIZE=512/d /sbin/setup-disk
 
 echo "Creating answerfile for /sbin/setup-alpine"
 cat << EOF > answerfile.txt
