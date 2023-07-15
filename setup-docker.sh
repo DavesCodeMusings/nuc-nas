@@ -54,6 +54,12 @@ services:
 EOF
 fi
 
+echo "Waiting for docker socket..."
+[ -S /var/run/docker.sock ] || sleep 1
+[ -S /var/run/docker.sock ] || sleep 2
+[ -S /var/run/docker.sock ] || sleep 3
+[ -S /var/run/docker.sock ] || sleep 5
+
 echo "Starting Portainer"
 cd /var/lib/docker/compose/portainer
 docker-compose up -d
