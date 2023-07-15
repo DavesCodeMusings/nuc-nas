@@ -1,4 +1,4 @@
-In this step, Gitea is configured to run as a Docker container. While not a critical component of a NAS device, having a Git server is convenient in many respects.
+In this step, Gitea is configured to run as a Docker container. While not a critical component of a NAS device, having a Git server is convenient for storing code and configuration files.
 
 By the end of this step, you will have:
 * Created a Docker Compose project to run the Gitea application.
