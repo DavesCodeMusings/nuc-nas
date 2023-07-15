@@ -13,7 +13,7 @@ If you would rather install applications using APK packages, you can certainly s
 There are several container management tools available these days. Docker was one of the first and has a good support structure around it. It's also relatively simple to install and understand, making it well suited for a small home network.
 
 ## Understanding the Scripted Install
-The [setup_docker.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-docker.sh) script is going to do three things for you.
+The [setup_docker.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-docker.sh) script will do three things for you.
 
 1. Create a logical volume that will be mounted on /var/lib/docker (this is where Docker stores nearly everything and storage needs can grow.)
 2. Install Docker Community Edition and Docker Compose from APK packages and start the Docker service.
