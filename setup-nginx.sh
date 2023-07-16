@@ -88,7 +88,7 @@ if ! [ -e /srv/www/$(hostname)/index.html ]; then
 </head>
 
 <body>
-  <p>It works!</p>
+  <h1>It works!</h1>
 </body>
 
 </html>
