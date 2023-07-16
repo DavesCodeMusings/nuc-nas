@@ -6,12 +6,13 @@ apk add sfdisk lvm2 lvm2-extra e2fsprogs e2fsprogs-extra
 
 echo "Displaying partition plan"
 echo ',+,lvm' | sfdisk -n -a /dev/${LVM_DISK}
-echo "Proceed with changes [y/N]?"
+echo
+echo -n "Proceed with changes [y/N]?"
 read REPLY
-[ "$REPLY" != "y" ] || exit 0
+[ "$REPLY" == "y" ] || exit 0
 
 echo "Creating LVM partition"
-echo ',+,lvm' | sfdisk -a /dev/${LVM_DISK}
+echo ',+,lvm' | sfdisk -f -a /dev/${LVM_DISK}
 partprobe
 pvcreate /dev/${LVM_PART}
 
