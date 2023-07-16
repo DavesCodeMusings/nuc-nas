@@ -11,5 +11,5 @@ cat <<EOF >/etc/sudoers.d/nopasswd
 EOF
 
 echo "Creating user account: $USERNAME"
-adduser -g '$FULLNAME' $USERNAME
+adduser -g "$FULLNAME" $USERNAME
 addgroup $USERNAME wheel
