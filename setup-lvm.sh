@@ -2,7 +2,7 @@ LVM_DISK=sda
 LVM_PART=sda4
 
 echo "Installing packages"
-apk add sfdisk lvm2 lvm2-extra e2fsprogs e2fsprogs-extra
+apk add sfdisk partx lvm2 lvm2-extra e2fsprogs e2fsprogs-extra
 
 echo "Displaying partition plan"
 echo ',+,lvm' | sfdisk -n -a /dev/${LVM_DISK}
@@ -13,7 +13,7 @@ read REPLY
 
 echo "Creating LVM partition"
 echo ',+,lvm' | sfdisk -f -a /dev/${LVM_DISK}
-partprobe
+partx -a /dev/${LVM_DISK}
 pvcreate /dev/${LVM_PART}
 
 echo "Creating volume group vg0"
