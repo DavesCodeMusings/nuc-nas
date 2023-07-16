@@ -11,12 +11,12 @@ No. But, you can use the Alpine-supplied `setup-alpine` script instead of the au
 Alpine Linux is small footprint OS and, like the NUC hardware, fits with the minimalist goals of the project.
 
 ## Understanding the Installation Process
-In order to automate as much as possible during the installation, there is a script that supplies many of the answers to the guided setup questions. However, you will first need to get the script. This is just a simple wget command. However, with no OS installed yet, things become a little more complicated. To work around this, the installation is done like this:
+In order to automate as much as possible during the installation, there is a script that creates an _answer file_ allowing you to skip many of the guided setup questions. However, you will first need to get the script. It's just a simple wget command, but with no OS installed yet, there's no network connection. To work around this, the installation is done like this:
 
 1. The system is booted with the Alpine installation media.
 2. Alpine's `setup-interfaces` script is used to configure the Ethernet interface for DHCP.
 3. The interface is brought up using Alpine's `ifup` command.
-4. The automation wrapper script, setup-alpine.sh, is fetched from GitHub using wget.
+4. The automation wrapper script, [setup-alpine.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-alpine.sh), is fetched from GitHub using wget.
 
 ## Preparing Boot Media
 You'll need a bootable ISO image to install Alpine. Go to the [Alpine downloads](https://alpinelinux.org/downloads/) and get the exteneded image for x86_64. You can either burn it to a CD-ROM or write it to a USB flash drive. The Raspberry Pi Imager tool can be used for this if you choose _Use Custom_ as the OS image.
