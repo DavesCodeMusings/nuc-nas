@@ -30,7 +30,50 @@ There's nothing in the script that requires customization.
 When the automated installation steps run, the output should be similar to what is shown below.
 
 ```
-TODO
+Fixing permissions on /var/mail
+Installing packages
+(1/16) Installing libbz2 (1.0.8-r5)
+(2/16) Installing icu-data-en (73.2-r2)
+Executing icu-data-en-73.2-r2.post-install
+*
+* If you need ICU with non-English locales and legacy charset support, install
+* package icu-data-full.
+*
+(3/16) Installing libgcc (12.2.1_git20220924-r10)
+(4/16) Installing libstdc++ (12.2.1_git20220924-r10)
+(5/16) Installing icu-libs (73.2-r2)
+(6/16) Installing libsodium (1.0.18-r3)
+(7/16) Installing dovecot (2.3.20-r10)
+Executing dovecot-2.3.20-r10.pre-install
+Executing dovecot-2.3.20-r10.post-install
+-----
+subject=OU = IMAP server, CN = imap.example.com, emailAddress = postmaster@example.com
+SHA1 Fingerprint=B0:39:69:25:84:F3:7A:73:9C:0E:86:B0:C2:D1:4B:6F:D9:89:EA:0B
+(8/16) Installing dovecot-openrc (2.3.20-r10)
+(9/16) Installing libspf2 (1.2.11-r2)
+(10/16) Installing tdb-libs (1.4.8-r1)
+(11/16) Installing exim (4.96-r2)
+Executing exim-4.96-r2.pre-install
+(12/16) Installing exim-openrc (4.96-r2)
+(13/16) Installing libmd (1.0.4-r2)
+(14/16) Installing libbsd (0.11.7-r1)
+(15/16) Installing liblockfile (1.17-r3)
+(16/16) Installing mailx (8.1.2_git20220412-r1)
+Executing busybox-1.36.1-r1.trigger
+OK: 506 MiB in 136 packages
+Configuring exim
+Starting exim
+ * service exim added to runlevel default
+ * Caching service dependencies ...                                       [ ok ]
+ * Starting exim ...                                                      [ ok ]
+Configuring Dovecot
+Setting up IMAP user credential store
+Starting Dovecot
+ * service dovecot added to runlevel default
+ * /run/dovecot: creating directory                                       [ ok ]
+ * Starting dovecot ...                                                   [ ok ]
+Create user passwords with: doveadm pw -s sha512-crypt
+Add them to /etc/dovecot/passwd like this: username:password
 ```
 
 ## Next Steps
