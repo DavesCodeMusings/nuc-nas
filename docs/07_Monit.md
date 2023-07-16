@@ -58,5 +58,23 @@ Open up a web browser on a computer on the same network. Use the address of http
 
 Check the [Monit home page](https://mmonit.com/monit/) and the wiki to find configuration examples to expand your monitoring capabilities.
 
+## Alerting
+
+If you have email working for your server, you can configure Monit to send alerts when things change. Create a new file called _/etc/monit.d/alerts.conf_ with contents similar to what's shown below.
+
+```
+set mailserver localhost
+set alert monit@server.home
+```
+
+Obviously, you'll want to customize the email address, but otherwise it should work as soon as you reload the monit configuration. To do that, run the following commands to test and load the new configuration:
+
+```
+monit -t
+monit reload
+```
+
+Follow this same procedure whenever you add a new system resource to monitor.
+
 ## Next Steps
 At this point, the system is pretty full-featured for such modest hardware. One thing that will tie it all together nicely is a web server with reverse proxy capability. [Nginx](08_Nginx.md) is just such an application and it fits nicely with the containerized applications we've built so far. 
