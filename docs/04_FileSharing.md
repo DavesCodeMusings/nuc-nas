@@ -57,4 +57,4 @@ Creating nextcloud ... done
 
 ## Next Steps
 
-For private, self-hosted git repositories there's a lightweight git server called Gitea. The next step is to install a containerized version of [Gitea](04_Gitea.md).
+For private, self-hosted git repositories there's a lightweight git server called Gitea. The next step is to install a containerized version of [Gitea](05_Gitea.md).
