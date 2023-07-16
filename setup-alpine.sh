@@ -34,4 +34,4 @@ export ROOT_SIZE
 export SWAP_SIZE
 setup-alpine -f answerfile.txt
 
-echo "Remove installation media and type 'reboot'"
+echo "Don't forget to remove installation media."
