@@ -73,3 +73,10 @@ server {
 }
 EOF
 fi
+
+echo "Creating content directory"
+mkdir -p /srv/www/$(hostname)
+
+echo "Starting Nginx..."
+cd /var/lib/docker/compose/nginx
+docker-compose up -d
