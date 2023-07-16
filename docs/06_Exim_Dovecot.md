@@ -76,6 +76,9 @@ Create user passwords with: doveadm pw -s sha512-crypt
 Add them to /etc/dovecot/passwd like this: username:password
 ```
 
-## Next Steps
+## Setting up aliases
 
-The root user can't log on via IMAP, so you'll probably want to edit /etc/mail/aliases to send root's mail to a regular user. Be sure to run the command `newaliases` to make the changes take effect when you're done.
+The root user can't log on via IMAP, so you'll probably want to edit /etc/mail/aliases to send root's mail to a regular user. Be sure to run the command `newaliases` to make the changes take effect when you're done. This is usually enough to ensure system messages make it to your inbox.
+
+## Next Steps
+TODO
