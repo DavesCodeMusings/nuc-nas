@@ -4,19 +4,19 @@ The Alpine OS is installed using three disk parititions: boot, swap, and root. T
 By the ends of this step, you will have:
 1. Created a partition of type _Linux LVM_.
 2. Initialized the partition as a physical volume. 
-3. Created a volume group.
+3. Created the volume group, vg0.
 4. Configured LVM to start when the system boots.
 
 ## Can I skip it?
-You can certainly create your own disk layout if you want. Alternatives to using LVM include creating traditional partitions or simply expanding the root partition to use the remaining space on the SSD.
+You can certainly create your own disk layout if you want. Alternatives to using LVM include creating traditional partitions or simply expanding the root partition to use the remaining space on your SSD.
 
 ## Why LVM?
 LVM has advantages in flexibility. It's generally easier to resize logical volumes than traditional partitions. This makes it less critical to size the disks correctly from the outset. With LVM, you simply allocate the minimum space you need now, knowing you can expand it in the future.
 
 ## Understanding the Scripted Install
-The installation script, [setup-lvm.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-lvm.sh), expects that you'll be using partition /dev/sda4 for LVM. If you have a more complex setup, there are variables at the top of the script that you can customize. Though for a single disk Alpine install, you shouldn't need to change anything.
+The installation script, [setup-lvm.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-lvm.sh), expects that you'll be creating a new partition /dev/sda4 for LVM. If this is a fresh install, /dev/sda4 should be fine. If you have a more complex setup, there are variables at the top of the script that you can customize.
 
-When you run the script, the first step is to install and run cfdisk, a menu-driven partitioning tool. Navigation of the cfdisk options is done using arrow keys, enter, and escape. The only caveat is you must type out the word 'yes' when writing changes. Simply using 'y' or pressing enter will not do anything.
+When you run the script, you'll be presented with the existing partition table followed by the proposed changes. You must enter 'y' to accept the changes.
 
 ## Running setup-lvm.sh
 First, download the [setup-lvm.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-lvm.sh) using wget.
@@ -25,72 +25,110 @@ Next, edit and make any neccessary customizations to the LVM_DISK and LVM_PART v
 
 Finally, run the script.
 
-During the interactive partitioning with cfdisk, you'll need to create an LVM type partition in the free space area of the disk.
-
-Here's an example of how most people will proceed with this step:
+Here's an example of a successful run:
 
 ```
-alpine:~# wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-lvm.sh
-Connecting to raw.githubusercontent.com (185.199.108.133:443)
-saving to 'setup-lvm.sh'
-setup-lvm.sh         100% |********************************|   164  0:00:00 ETA
-'setup-lvm.sh' saved
+Installing packages
+OK: 243 MiB in 110 packages
+Displaying partition plan
+Disk /dev/sda: 32 GiB, 34359738368 bytes, 67108864 sectors
+Disk model: VBOX HARDDISK
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 37E70CAE-BE55-4F47-B3D6-8F2A2B89C705
 
-alpine:~# sh ./setup-lvm.sh
-(1/9) Installing libfdisk (2.37.4-r0)
-(2/9) Installing libmount (2.37.4-r0)
-(3/9) Installing libsmartcols (2.37.4-r0)
-(4/9) Installing cfdisk (2.37.4-r0)
-(5/9) Installing libaio (0.3.112-r1)
-(6/9) Installing device-mapper-event-libs (2.02.187-r2)
-(7/9) Installing lvm2-libs (2.02.187-r2)
-(8/9) Installing lvm2 (2.02.187-r2)
-(9/9) Installing lvm2-openrc (2.02.187-r2)
-Executing busybox-1.34.1-r5.trigger
-OK: 881 MiB in 163 packages
+Old situation:
 
-                                 Disk: /dev/sda
-               Size: 40 GiB, 42949672960 bytes, 83886080 sectors
-          Label: gpt, identifier: 0AA70338-A23D-C542-8A14-972AFC2147C5
+Device        Start      End  Sectors  Size Type
+/dev/sda1      2048   206847   204800  100M EFI System
+/dev/sda2    206848 16984063 16777216    8G Linux swap
+/dev/sda3  16984064 33761279 16777216    8G Linux filesystem
 
-    Device              Start         End     Sectors    Size Type
-    /dev/sda1            2048      206847      204800    100M EFI System
-    /dev/sda2          206848    16984063    16777216      8G Linux swap
-    /dev/sda3        16984064    33761279    16777216      8G Linux filesystem
->>  Free space       33761280    83886046    50124767   23.9G                   
+/dev/sda4: Created a new partition 4 of type 'Linux LVM' and of size 15.9 GiB.
+/dev/sda5: Done.
 
-           [   New  ]  [  Quit  ]  [  Help  ]  [  Write ]  [  Dump  ]
-           
-                                 Disk: /dev/sda
-               Size: 40 GiB, 42949672960 bytes, 83886080 sectors
-          Label: gpt, identifier: 0AA70338-A23D-C542-8A14-972AFC2147C5
+New situation:
+Disklabel type: gpt
+Disk identifier: 37E70CAE-BE55-4F47-B3D6-8F2A2B89C705
 
-    Device              Start         End     Sectors    Size Type
-    /dev/sda1            2048      206847      204800    100M EFI System
-    /dev/sda2          206848    16984063    16777216      8G Linux swap
-    /dev/sda3        16984064    33761279    16777216      8G Linux filesystem
->>  /dev/sda4        33761280    83886046    50124767   23.9G Linux LVM
+Device        Start      End  Sectors  Size Type
+/dev/sda1      2048   206847   204800  100M EFI System
+/dev/sda2    206848 16984063 16777216    8G Linux swap
+/dev/sda3  16984064 33761279 16777216    8G Linux filesystem
+/dev/sda4  33761280 67106815 33345536 15.9G Linux LVM
+The partition table is unchanged (--no-act).
 
-     [ Delete ]  [ Resize ]  [  Quit  ]  [  Type  ]  [  Help  ]  [  Write ]
+Proceed with changes [y/N]? y
+Creating LVM partition
+Checking that no-one is using this disk right now ... FAILED
 
- Are you sure you want to write the partition table to disk? yes
+This disk is currently in use - repartitioning is probably a bad idea.
+Umount all file systems, and swapoff all swap partitions on this disk.
+Use the --no-reread flag to suppress this check.
 
+Disk /dev/sda: 32 GiB, 34359738368 bytes, 67108864 sectors
+Disk model: VBOX HARDDISK
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 37E70CAE-BE55-4F47-B3D6-8F2A2B89C705
+
+Old situation:
+
+Device        Start      End  Sectors  Size Type
+/dev/sda1      2048   206847   204800  100M EFI System
+/dev/sda2    206848 16984063 16777216    8G Linux swap
+/dev/sda3  16984064 33761279 16777216    8G Linux filesystem
+
+/dev/sda4: Created a new partition 4 of type 'Linux LVM' and of size 15.9 GiB.
+/dev/sda5: Done.
+
+New situation:
+Disklabel type: gpt
+Disk identifier: 37E70CAE-BE55-4F47-B3D6-8F2A2B89C705
+
+Device        Start      End  Sectors  Size Type
+/dev/sda1      2048   206847   204800  100M EFI System
+/dev/sda2    206848 16984063 16777216    8G Linux swap
+/dev/sda3  16984064 33761279 16777216    8G Linux filesystem
+/dev/sda4  33761280 67106815 33345536 15.9G Linux LVM
+
+The partition table has been altered.
+Calling ioctl() to re-read partition table.
+Re-reading the partition table failed.: Resource busy
+The kernel still uses the old table. The new table will be used at the next reboot or after you run partprobe(8) or partx(8).
 Syncing disks.
+partx: /dev/sda: error adding partitions 1-3
   Physical volume "/dev/sda4" successfully created.
+Creating volume group vg0
   Volume group "vg0" successfully created
   0 logical volume(s) in volume group "vg0" now active
+Configuring LVM to start at boot
  * service lvm added to runlevel boot
 ```
 
-The important parts are selecting the _Linux LVM_ partition type and entering the word _yes_ (rather than 'y' or Enter) when asked about writing to disk.
+There are a few warnings and errors in the output, but these are expected because the disk is in use as it's being changed. The partx command it used to refresh the partition table after the changes are made, so the errors can be ignored. Manual verification of changes is covered in the next section.
 
 ## Verifying Success
-Some of the LVM tools you can use to see the logical volumes are:
-* pvs or pvdisplay for information about the physical volumes
-* vgs or vgdisplay for the volume group
-* lvs of lvdisplay for the logical volumes
+The command `sfdisk -l /dev/sda` can be used to verify the partition table.
 
-pvs, vgs, and lvs show only brief information. pvdisplay, vgdisplay, and lvdisplay show more verbose output.
+```
+alpine:~# sfdisk -l /dev/sda
+Disk /dev/sda: 32 GiB, 34359738368 bytes, 67108864 sectors
+
+Device        Start      End  Sectors  Size Type
+/dev/sda1      2048   206847   204800  100M EFI System
+/dev/sda2    206848 16984063 16777216    8G Linux swap
+/dev/sda3  16984064 33761279 16777216    8G Linux filesystem
+/dev/sda4  33761280 67106815 33345536 15.9G Linux LVM
+```
+
+>Some output is truncated for brevity.
+
+Commands `pvs`, `vgs`, and `lvs` will verify the logival volumes.
 
 ```
 alpine:~# pvs
