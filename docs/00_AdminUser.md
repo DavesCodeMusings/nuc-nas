@@ -1,7 +1,18 @@
+# Creating an Admin User Account
+Even if you're the only user of the system, you're going to need an account besides root to log on with. Setting up the account with sudo will give you an experience much like other Linux distributions.
 
-## Creating a Non-Root User Account
-Even if you're the only user of the system, you're going to need an account besides root to log on with SSH. If you want to install sudo as well, this will give you an experience much like other Linux distributions. Alternatively, you can use the command `su -` to switch to the root account. The instructions below assume you'll be using sudo.
+By the end of this step you will have:
+* Installed sudo
+* Created an admin user
+* Configured sudo to not require retyping the admin user's password
 
+## Can I skip it?
+Alternatively, you can use the command `su -` to switch to the root account.
+
+## Why sudo?
+The short answer: it's mostly for sanity. Alpine Linux prefers the minimalist `doas` over `sudo`. However, sudo is the defacto standard in nearly every other Linux distro. If you use distros besides Alpine, and you're used to prefixing commands with _sudo_, it's going to be frustrating to retrain your brain to type _doas_.
+
+## Configuring an Admin User
 First, log into the system console as root.
 
 Next, use the `adduser` command to create a new user account.
