@@ -124,7 +124,7 @@ Check GRUB_DISABLE_OS_PROBER documentation entry.
 done
 
 Installation is complete. Please reboot.
-Remove installation media and type 'restart'
+Don't forget to remove installation media.
 ```
 
 ## Creating a Non-Root User Account
