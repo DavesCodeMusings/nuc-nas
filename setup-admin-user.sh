@@ -13,4 +13,3 @@ EOF
 echo "Creating user account: $USERNAME"
 adduser -g '$FULLNAME' $USERNAME
 addgroup $USERNAME wheel
-passwd $USERNAME
