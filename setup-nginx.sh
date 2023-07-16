@@ -1,7 +1,7 @@
-SSL_CERT=/etc/ssl/certs/$(hosname).crt
-SSL_KEY=/etc/ssl/private/$(hostnam).key
+SSL_CERT=/etc/ssl/certs/$(hostname).crt
+SSL_KEY=/etc/ssl/private/$(hostname).key
 
-if ! [ -f SSL_CERT && -f SSL_KEY ]; then
+if ! [ -f $SSL_CERT && -f $SSL_KEY ]; then
   echo "Certificates not found!"
   echo "Press CTRL+C to abort or ENTER to ignore."
   read REPLY
@@ -11,7 +11,7 @@ echo "Creating compose project directory"
 mkdir -p /var/lib/docker/compose/nginx || exit 2
 
 echo "Creating Nginx compose file"
-if [ -f SSL_CERT && -f SSL_KEY ]; then
+if [ -f $SSL_CERT && -f $SSL_KEY ]; then
   cat <<EOF >/var/lib/docker/compose/nginx/compose.yml
 services:
     nginx:
