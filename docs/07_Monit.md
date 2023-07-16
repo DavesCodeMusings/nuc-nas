@@ -56,7 +56,7 @@ Open up a web browser on a computer on the same network. Use the address of http
 
 ## Add Resource Checks
 
-Check the [Monit home page](https://mmonit.com/monit/) and the wiki to find configuration examples to expand your monitoring.
+Check the [Monit home page](https://mmonit.com/monit/) and the wiki to find configuration examples to expand your monitoring capabilities.
 
 ## Next Steps
-TODO
+At this point, the system is pretty full-featured for such modest hardware. One thing that will tie it all together nicely is a web server with reverse proxy capability. [Nginx](08_Nginx.md) is just such an application and it fits nicely with the containerized applications we've built so far. 
