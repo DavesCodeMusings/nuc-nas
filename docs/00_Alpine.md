@@ -30,7 +30,7 @@ Here's are the steps at a high level:
 4. Edit the script to customize: `vi setup-alpine.sh`
 5. Run the script to install `sh ./setup-alpine.sh`
 
-More detailed instructions are shown given below.
+More detailed instructions are shown below.
 
 ### Disabling Secure Boot
 When booting the NUC, you will first need to disable secure boot in the setup. You can access the setup by pressing F2 just after powering up.
