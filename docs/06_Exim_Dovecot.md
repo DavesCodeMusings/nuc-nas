@@ -1,4 +1,4 @@
-# Exim and Dovecot for intranet email
+# Exim and Dovecot for Intranet Email
 In this step, Exim is configured as a mail transfer agent and 
 
 At the end of this step, you will have:
