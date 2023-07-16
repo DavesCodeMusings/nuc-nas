@@ -22,7 +22,7 @@ In order to automate as much as possible during the installation, there is a scr
 You'll need a bootable ISO image to install Alpine. Go to the [Alpine downloads](https://alpinelinux.org/downloads/) and get the exteneded image for x86_64. You can either burn it to a CD-ROM or write it to a USB flash drive. The Raspberry Pi Imager tool can be used for this if you choose _Use Custom_ as the OS image.
 
 ## Performing (Mostly) Automated Alpine Installation
-Here's are the steps:
+Here's are the steps at a high level:
 
 1. Boot the alpine-extended.iso image
 2. Temporarily configure a DHCP address: `setup-interfaces` then `ifup eth0`
