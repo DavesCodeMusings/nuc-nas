@@ -1,6 +1,11 @@
 LVM_DISK=sda
 LVM_PART=sda4
 
+if [ -b /dev/${LVM_PART} ]; then
+  echo "Cowardly refusing to overwrite existing partition!"
+  exit 1
+fi
+
 echo "Installing packages"
 apk add sfdisk partx lvm2 lvm2-extra e2fsprogs e2fsprogs-extra
 
