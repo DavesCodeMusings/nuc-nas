@@ -103,7 +103,6 @@ passwd: password for root changed by root
  * Starting chronyd ...                                               [ ok ]
 Added mirror dl-cdn.alpinelinux.org
 Updating repository indexes... done.
-Setup a user? (enter a lower-case loginname, or 'no') [no]
  * Starting sshd ...                                                  [ ok ]
 WARNING: The following disk(s) will be erased:
   sda   (25.8 GB ATA      VBOX HARDDISK   )
