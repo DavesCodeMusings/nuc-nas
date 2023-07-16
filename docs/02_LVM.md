@@ -62,46 +62,11 @@ The partition table is unchanged (--no-act).
 
 Proceed with changes [y/N]? y
 Creating LVM partition
-Checking that no-one is using this disk right now ... FAILED
-
 This disk is currently in use - repartitioning is probably a bad idea.
 Umount all file systems, and swapoff all swap partitions on this disk.
 Use the --no-reread flag to suppress this check.
 
-Disk /dev/sda: 32 GiB, 34359738368 bytes, 67108864 sectors
-Disk model: VBOX HARDDISK
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: gpt
-Disk identifier: 37E70CAE-BE55-4F47-B3D6-8F2A2B89C705
-
-Old situation:
-
-Device        Start      End  Sectors  Size Type
-/dev/sda1      2048   206847   204800  100M EFI System
-/dev/sda2    206848 16984063 16777216    8G Linux swap
-/dev/sda3  16984064 33761279 16777216    8G Linux filesystem
-
-/dev/sda4: Created a new partition 4 of type 'Linux LVM' and of size 15.9 GiB.
-/dev/sda5: Done.
-
-New situation:
-Disklabel type: gpt
-Disk identifier: 37E70CAE-BE55-4F47-B3D6-8F2A2B89C705
-
-Device        Start      End  Sectors  Size Type
-/dev/sda1      2048   206847   204800  100M EFI System
-/dev/sda2    206848 16984063 16777216    8G Linux swap
-/dev/sda3  16984064 33761279 16777216    8G Linux filesystem
-/dev/sda4  33761280 67106815 33345536 15.9G Linux LVM
-
-The partition table has been altered.
-Calling ioctl() to re-read partition table.
 Re-reading the partition table failed.: Resource busy
-The kernel still uses the old table. The new table will be used at the next reboot or after you run partprobe(8) or partx(8).
-Syncing disks.
-partx: /dev/sda: error adding partitions 1-3
   Physical volume "/dev/sda4" successfully created.
 Creating volume group vg0
   Volume group "vg0" successfully created
