@@ -1,4 +1,4 @@
-# Containerized Workloads with Docker and Portainer
+# Containerized Workloads with Docker
 Docker provides a way to run applications as containers.
 
 At the end of this step, you will have:
