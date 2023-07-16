@@ -99,4 +99,4 @@ Links to the various application configuration instructions are listed below.
 
 OpenLDAP is very command-line intensive and perhaps not the easiest of software to grasp. Searching the net for "openldap import ldif" can give you some hints on how to bulk add users and groups to the LDAP directory. There's also a rather old tool for Windows called [LDAP Admin](http://www.ldapadmin.org/) that offers a graphical user interface to the LDAP directory.
 
-After you've got LDAP mastered, you can move on to setting up local email delivery [exim and dovecot](06_Exim_Dovecot.md)
+After you've got LDAP mastered, you can move on to setting up local email delivery [exim and dovecot](07_Exim_Dovecot.md)
