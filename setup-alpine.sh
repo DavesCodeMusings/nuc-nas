@@ -22,6 +22,7 @@ DNSOPTS="-d ${DOMAIN} ${DNS}"
 TIMEZONEOPTS="-z UTC"
 PROXYOPTS="none"
 APKREPOSOPTS="-1 -c"  # Use the first mirror and enable community repository
+USEROPTS="none"  # Skip automatic creation
 SSHDOPTS="-c openssh"
 NTPOPTS="-c chrony"
 DISKOPTS="-m sys /dev/sda"
