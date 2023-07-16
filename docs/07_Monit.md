@@ -54,6 +54,9 @@ https://mmonit.com/wiki/Monit/EnableSSLInMonit for SSL.
 
 Open up a web browser on a computer on the same network. Use the address of http://IP.AD.DR.ESS:2812/ to view the system health web page.
 
-## Next Steps
+## Add Resource Checks
 
 Check the [Monit home page](https://mmonit.com/monit/) and the wiki to find configuration examples to expand your monitoring.
+
+## Next Steps
+TODO
