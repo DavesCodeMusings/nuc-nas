@@ -22,13 +22,15 @@ In order to automate as much as possible during the installation, there is a scr
 You'll need a bootable ISO image to install Alpine. Go to the [Alpine downloads](https://alpinelinux.org/downloads/) and get the exteneded image for x86_64. You can either burn it to a CD-ROM or write it to a USB flash drive. The Raspberry Pi Imager tool can be used for this if you choose _Use Custom_ as the OS image.
 
 ## Performing (Mostly) Automated Alpine Installation
-Here's how it works:
+Here's are the steps:
 
 1. Boot the alpine-extended.iso image
-2. Temporarily configure with a DHCP address.
-3. Fetch [setup-alpine.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-alpine.sh)
-4. Edit the script to customize.
-5. Run `sh ./setup-alpine.sh` to install.
+2. Temporarily configure a DHCP address: `setup-interfaces` then `ifup eth0`
+3. Fetch the setup script: `wget https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-alpine.sh`
+4. Edit the script to customize: `vi setup-alpine.sh`
+5. Run the script to install `sh ./setup-alpine.sh`
+
+More detailed instructions are shown given below.
 
 ### Disabling Secure Boot
 When booting the NUC, you will first need to disable secure boot in the setup. You can access the setup by pressing F2 just after powering up.
