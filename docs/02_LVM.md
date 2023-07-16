@@ -62,10 +62,6 @@ The partition table is unchanged (--no-act).
 
 Proceed with changes [y/N]? y
 Creating LVM partition
-This disk is currently in use - repartitioning is probably a bad idea.
-Umount all file systems, and swapoff all swap partitions on this disk.
-Use the --no-reread flag to suppress this check.
-
 Re-reading the partition table failed.: Resource busy
   Physical volume "/dev/sda4" successfully created.
 Creating volume group vg0
@@ -75,7 +71,7 @@ Configuring LVM to start at boot
  * service lvm added to runlevel boot
 ```
 
-There are a few errors and warnings in the output, but these are expected because the disk is in use as it's being changed. The `partx` command is used to refresh the partition table after the changes are made, so the errors can be ignored. Manual verification of changes is covered in the next section.
+>The _resouce busy_ error is expected because the disk is in use as it's being changed. The _successfully created_ message on the line immediately following shows the partition was created as expected. Further manual verification of changes is covered in the next section.
 
 ## Verifying Success
 The command `sfdisk -l /dev/sda` can be used to verify the partition table.
