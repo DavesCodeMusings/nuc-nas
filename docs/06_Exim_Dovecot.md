@@ -1,5 +1,5 @@
 # Exim and Dovecot for Intranet Email
-In this step, Exim is configured as a mail transfer agent and 
+In this step, Exim is configured as a mail transfer agent and Dovecot is configured as an IMAP mail server.
 
 At the end of this step, you will have:
 * Installed the Exim and Dovecot APKs along with the mailx client for testing.
