@@ -108,4 +108,4 @@ alpine:~# lvs
 At this point, there are no logical volumes to show. But, you should see physical volume and volume group information. The amount of free space should match the the size of your SSD minus what was allocated to the boot, swap, and root partitions. A 40G disk was used in the example above. 40G (total) - 8G (root) - 8G (swap) - 100M (boot) gives 23.9G for the logical volumes.
 
 ## Next Steps
-Now that the logical volume manager is setup, it's time to put the space to use. The next thing we'll do is carve out 10G to use for Docker containers and [install Docker Community Edition](02_Docker.md).
+Now that the logical volume manager is setup, it's time to put the space to use. The next thing we'll do is carve out 10G to use for Docker containers and [install Docker Community Edition](03_Docker.md).
