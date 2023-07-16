@@ -13,3 +13,6 @@ echo "Configuring sudo"
 cat <<EOF >/etc/sudoers.d/nopasswd
 %wheel ALL=(ALL) NOPASSWD: ALL
 EOF
+
+echo "Setting password for $USERNAME"
+passwd $USERNAME
