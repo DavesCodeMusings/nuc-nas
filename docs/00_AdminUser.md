@@ -42,7 +42,7 @@ passwd: password for admin changed by root
 ## Testing the Admin User
 As a final check to make sure everything is working, you'll want to test ssh login and sudo.
 
-1. Log in via ssh
+1. Log in as the admin user via ssh
 2. Use sudo to start a root shell
 
 For example:
@@ -58,4 +58,7 @@ alpine:~#
 
 Notice how the shell prompt changes from a $ to #, indicating root access.
 
+You'll use a similar procedure for all future logins.
+
 ## Next Steps
+With the admin user configured, it's time to use those sudo powers to start configuring disk space using the [Logical Volume Manager](02_LVM.md)
