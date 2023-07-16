@@ -51,11 +51,11 @@ if [ -f SSL_CERT ] && [ -f SSL_KEY ]; then
 server {
     listen 80;
     listen 443 ssl;
-    server_name  anubis.home;
+    server_name $(hostname);
     ssl_certificate  $SSL_CERT;
     ssl_certificate_key  $SSL_KEY;
     location / {
-        root /usr/share/nginx/html/anubis-www;
+        root /usr/share/nginx/html/$(hostname);
         index index.html index.htm;
     }
 }
@@ -65,9 +65,9 @@ else
 # Serve static files
 server {
     listen 80;
-    server_name  anubis.home;
+    server_name $(hostname);
     location / {
-        root /usr/share/nginx/html/anubis-www;
+        root /usr/share/nginx/html/$(hostname);
         index index.html index.htm;
     }
 }
