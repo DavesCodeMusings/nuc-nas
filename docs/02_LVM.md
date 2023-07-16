@@ -110,7 +110,7 @@ Configuring LVM to start at boot
  * service lvm added to runlevel boot
 ```
 
-There are a few warnings and errors in the output, but these are expected because the disk is in use as it's being changed. The partx command it used to refresh the partition table after the changes are made, so the errors can be ignored. Manual verification of changes is covered in the next section.
+There are a few errors and warnings in the output, but these are expected because the disk is in use as it's being changed. The `partx` command is used to refresh the partition table after the changes are made, so the errors can be ignored. Manual verification of changes is covered in the next section.
 
 ## Verifying Success
 The command `sfdisk -l /dev/sda` can be used to verify the partition table.
