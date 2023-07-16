@@ -50,4 +50,4 @@ rc-update add dovecot
 service dovecot start
 
 echo "Create user passwords with: doveadm pw -s sha512-crypt"
-echo "Add them to /etc/dovecot/passwd like this: username:password
+echo "Add them to /etc/dovecot/passwd like this: username:password"
