@@ -1,7 +1,7 @@
 LVM_DISK=sda
-LVM_PART=sda4
+LVM_PART=4
 
-if [ -b /dev/${LVM_PART} ]; then
+if [ -b /dev/${LVM_DISK}${LVM_PART} ]; then
   echo "Cowardly refusing to overwrite existing partition!"
   exit 1
 fi
@@ -18,11 +18,11 @@ read REPLY
 
 echo "Creating LVM partition"
 echo ',+,lvm' | sfdisk --quiet --force --append /dev/${LVM_DISK}
-partx -a /dev/${LVM_DISK}
-pvcreate /dev/${LVM_PART}
+partx -a -n${LVM_PART} /dev/${LVM_DISK}
+pvcreate /dev/${LVM_DISK}${LVM_PART}
 
 echo "Creating volume group vg0"
-vgcreate vg0 /dev/${LVM_PART}
+vgcreate vg0 /dev/${LVM_DISK}${LVM_PART}
 vgchange -ay
 
 echo "Configuring LVM to start at boot"
