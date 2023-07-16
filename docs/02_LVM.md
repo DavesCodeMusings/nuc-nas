@@ -71,7 +71,7 @@ Configuring LVM to start at boot
  * service lvm added to runlevel boot
 ```
 
->The _resouce busy_ failure message is expected because the disk is in use as it's being changed. The _successfully created_ message on the line immediately following shows the partition was created as expected. Further manual verification of changes is covered in the next section.
+>The _resouce busy_ failure message is expected, because the disk is in use as it's being changed. The _successfully created_ message on the line immediately following shows the partition was created as expected. Further manual verification of changes is covered in the next section.
 
 ## Verifying Success
 The command `sfdisk -l /dev/sda` can be used to verify the partition table.
