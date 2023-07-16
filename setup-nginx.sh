@@ -1,7 +1,7 @@
 SSL_CERT=/etc/ssl/certs/$(hostname).crt
 SSL_KEY=/etc/ssl/private/$(hostname).key
 
-if ! [ -f $SSL_CERT ] && [ -f $SSL_KEY ]; then
+if ! [ -f $SSL_CERT ] || ! [ -f $SSL_KEY ]; then
   echo "Certificates not found!"
   echo "Press CTRL+C to abort or ENTER to ignore."
   read REPLY
