@@ -19,7 +19,7 @@ The [setup-gitea.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/
 
 The only customizable component of the script is the GIT_HOME variable that indicates where the centralized git repositories will be stored. The default is /srv/git.
 
-## Running the setup-gitea.sh script
+## Running the setup-gitea.sh Script
 First, download [setup-gitea.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-gitea.sh) using wget.
 
 Next, edit the file if you want to change the location where files will be stored.
@@ -54,7 +54,7 @@ Visit http://alpine.home:3000 to configure Gitea
 
 >Output has been truncated for brevity.
 
-## Configuring Via the Web Interface
+## Configuring via the Web Interface
 The first time Gitea is run, you'll be taken to a configuration page for the application. Many options are dependent on your particular needs, but there are a handful that should be changed to fit the way Gitea was installed.
 
 * Repository Root Path: /srv/git
