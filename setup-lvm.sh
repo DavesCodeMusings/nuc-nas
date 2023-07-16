@@ -7,7 +7,7 @@ apk add sfdisk partx lvm2 lvm2-extra e2fsprogs e2fsprogs-extra
 echo "Displaying partition plan"
 echo ',+,lvm' | sfdisk -n -a /dev/${LVM_DISK}
 echo
-echo -n "Proceed with changes [y/N]?"
+echo -n "Proceed with changes [y/N]? "
 read REPLY
 [ "$REPLY" == "y" ] || exit 0
 
