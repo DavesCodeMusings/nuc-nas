@@ -2,7 +2,7 @@ SSL_CERT=/etc/ssl/certs/$(hostname).crt
 SSL_KEY=/etc/ssl/private/$(hostname).key
 
 if ! [ -f $SSL_CERT ] || ! [ -f $SSL_KEY ]; then
-  echo "Certificates not found!"
+  echo "SSL certificate and key not found!"
   echo "Press CTRL+C to abort or ENTER to continue with non-SSL setup."
   read REPLY
 fi
