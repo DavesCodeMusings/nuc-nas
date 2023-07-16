@@ -10,7 +10,7 @@ By the end of this step you will have:
 You can log in as root all the time, though it's not considered a best practice. You can also create a non-privileged user without sudo, instead using `su -` for switching to the root account.
 
 ## Why sudo?
-The short answer: it's mostly for sanity. Alpine Linux prefers the minimalist `doas` over `sudo`. However, sudo is the defacto standard in nearly every other Linux distro. If you use distros besides Alpine, and you're used to prefixing commands with _sudo_, it's going to be frustrating retraining your brain to type _doas_.
+The short answer: it's mostly for sanity. Alpine Linux prefers the minimalist `doas` over `sudo`. However, sudo is the defacto standard in nearly every other Linux distro. If you use distros besides Alpine, and you're used to prefixing commands with _sudo_, retraining your brain to type _doas_ is going to be frustrating .
 
 ## Understanding the Script
 Normally with Alpine Linux, you would use the `adduser` command to create a new user. The `groupadd` command would then be used to assign the user to the _wheel_ group to give sudo access. You could then edit /etc/sudoers to allow the _wheel_ group. What the script does is to combine the these commands and run them in the correct order.
