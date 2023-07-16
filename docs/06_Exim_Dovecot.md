@@ -9,7 +9,7 @@ At the end of this step, you will have:
 Yes. Local email delivery is mostly for receiving automated system messages. You don't have to use it.
 
 ## Why Exim and Dovecot?
-Exim is probably the most straightforward of any email server. Dovecot is a little more complex, but compared to its peers, it's not too bad. 
+Exim is probably the most straightforward of any email server. Dovecot is a little more complex, but compared to its peers, it's not too bad. The main reason for having email setup on the system is to deliver notifications from any cron jobs or other system processes.
 
 ## Understanding the Scripted Install
 [setup-email.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-email.sh) automates the following tasks:
