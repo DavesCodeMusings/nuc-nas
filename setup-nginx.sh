@@ -77,6 +77,24 @@ fi
 echo "Creating content directory"
 mkdir -p /srv/www/$(hostname)
 
+if ! [ -e /srv/www/$(hostname)/index.html ]; then
+  cat <<EOF > /srv/www/$(hostname)/index.html
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>It works!</title>
+</head>
+
+<body>
+  <p>It works!</p>
+</body>
+
+</html>
+EOF
+fi
+
 echo "Starting Nginx..."
 cd /var/lib/docker/compose/nginx
 docker-compose up -d
