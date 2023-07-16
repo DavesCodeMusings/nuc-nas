@@ -1,3 +1,5 @@
+# Code Versioning with Gitea
+
 In this step, Gitea is configured to run as a Docker container. While not a critical component of a NAS device, having a Git server is convenient for storing things like code and configuration files.
 
 By the end of this step, you will have:
