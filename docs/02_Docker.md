@@ -1,4 +1,4 @@
-# Docker Community Edition and Portainer Community Edition
+# Containerized Workloads with Docker and Portainer
 Docker provides a way to run applications as containers.
 
 At the end of this step, you will have:
