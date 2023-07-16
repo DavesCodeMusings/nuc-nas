@@ -17,7 +17,7 @@ read REPLY
 [ "$REPLY" == "y" ] || exit 0
 
 echo "Creating LVM partition"
-echo ',+,lvm' | sfdisk --quiet --force --append /dev/${LVM_DISK}
+echo ',+,lvm' | sfdisk --quiet --force --no-reread --append /dev/${LVM_DISK}
 partx -a -n${LVM_PART} /dev/${LVM_DISK}
 pvcreate /dev/${LVM_DISK}${LVM_PART}
 
