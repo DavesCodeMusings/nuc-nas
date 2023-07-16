@@ -3,7 +3,7 @@ chgrp mail /var/mail
 chmod 2775 /var/mail
 
 echo "Installing packages"
-apk add exim mailx dovecot
+apk add exim dovecot mailx
 
 echo "Configuring exim"
 sed -i~ \
