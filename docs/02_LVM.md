@@ -94,11 +94,11 @@ Commands `pvs`, `vgs`, and `lvs` will verify the logival volumes.
 ```
 alpine:~# pvs
   PV         VG  Fmt  Attr PSize   PFree
-  /dev/sda4  vg0 lvm2 a--  <23.90g <23.90g
+  /dev/sda4  vg0 lvm2 a--  <15.90g <15.90g
 
 alpine:~# vgs
   VG  #PV #LV #SN Attr   VSize   VFree
-  vg0   1   0   0 wz--n- <23.90g <23.90g
+  vg0   1   0   0 wz--n- <15.90g <15.90g
 
 alpine:~# lvs
 
