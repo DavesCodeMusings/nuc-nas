@@ -1,15 +1,17 @@
-ROOT_CA=HomeCA
-DOMAIN=home
 COUNTRY=
 STATE_PROVINCE=
 CITY=
+ROOT_CA=HomeCA
+DOMAIN=home
+HOST=$(hostname -s)
 
 echo "Verifying settings"
-[ -n "$ROOT_CA" ] || exit 1
-[ -n "$DOMAIN" ] || exit 1
 [ -n "$COUNTRY" ] || exit 1
 [ -n "$STATE_PROVINCE" ] || exit 1
 [ -n "$CITY" ] || exit 1
+[ -n "$ROOT_CA" ] || exit 1
+[ -n "$DOMAIN" ] || exit 1
+[ -n "$HOST" ] || exit 1
 
 CERTS_DIR=/etc/ssl/certs
 KEYS_DIR=/etc/ssl/private
@@ -100,6 +102,53 @@ openssl x509 \
   -in ${TEMP_DIR}/${DOMAIN}.csr \
   -out ${CERTS_DIR}/${DOMAIN}.crt \
   -days 3650
+
+echo "Creating host certificate config"
+cat <<EOF >${TEMP_DIR}/${HOST}.conf
+[req]
+default_bits = 2048
+default_md = sha256
+distinguished_name = req_dn
+req_extensions = req_ext
+prompt = no
+
+[req_dn]
+C = ${COUNTRY}
+ST = ${STATE_PROVINCE}
+L = ${CITY}
+O = ${DOMAIN}
+CN = ${HOST}.${DOMAIN}
+
+[req_ext]
+authorityKeyIdentifier=keyid,issuer
+basicConstraints = CA:false
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = ${HOST}.${DOMAIN}
+DNS.1 = *.${HOST}.${DOMAIN}
+IP.1 = ${IP}
+EOF
+
+echo "Creating host certificate"
+openssl req \
+  -new \
+  -nodes \
+  -keyout ${KEYS_DIR}/${HOST}.key \
+  -out ${TEMP_DIR}/${HOST}.csr \
+  -config csr.conf
+
+# Sign the request using the intermediate certificate authority.
+openssl x509 -req \
+  -in ${TEMP_DIR}/${HOST}.csr \
+  -CA ${CERTS_DIR}/${DOMAIN}.crt \
+  -CAkey ${KEYS_DIR}/${DOMAIN}.key \
+  -CAcreateserial \
+  -out ${HOST}.crt \
+  -days 1825 \
+  -sha256 \
+  -extfile cert.conf
 
 echo "Cleaning up temporary files"
 rm ${TEMP_DIR}/${ROOT_CA}.csr
