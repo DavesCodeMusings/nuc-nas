@@ -57,4 +57,4 @@ Creating nextcloud ... done
 
 ## Next Steps
 
-For private, self-hosted git repositories there's a lightweight git server called Gitea. The next step is to install a containerized version of [Gitea](05_Gitea.md).
+Git is another way to share files like code, documentation, and configurations. Github is an example of this. For private, self-hosted git repositories there's a lightweight server called Gitea you can run as a Docker container. The next step is to install [Gitea](05_Gitea.md).
