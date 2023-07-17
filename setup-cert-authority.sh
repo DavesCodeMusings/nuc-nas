@@ -18,7 +18,7 @@ KEYS_DIR=/etc/ssl/private
 [ -d ${CERTS_DIR} ] || exit 2
 [ -d ${KEYS_DIR} ] || exit 2
 
-TEMP_DIR=$(mktemp)
+TEMP_DIR=$(mktemp -d)
 
 echo "Creating root CA config"
 cat <<EOF >${TEMP_DIR}/${ROOT_CA}.conf
