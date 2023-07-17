@@ -157,4 +157,5 @@ rm ${TEMP_DIR}/${ROOT_CA}.csr
 rm ${TEMP_DIR}/${ROOT_CA}.conf
 rm ${TEMP_DIR}/${DOMAIN}.csr
 rm ${TEMP_DIR}/${DOMAIN}.conf
+rm ${TEMP_DIR}/${HOST}.conf
 rmdir ${TEMP_DIR}
