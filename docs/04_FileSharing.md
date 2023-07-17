@@ -1,6 +1,6 @@
 # File Sharing with Nextcloud and Samba
 
-In this step, Nextcloud and Samba are both configured to run as Docker containers using a single Docker Compose project. Both applications are used to share files, a core component of any NAS device.
+In this step, Nextcloud and Samba are configured to run as Docker containers using a single Docker Compose project. Both applications are used to share files, a core component of any NAS device.
 
 By the end of this step, you will have:
 * Created a logical volume for file storage.
