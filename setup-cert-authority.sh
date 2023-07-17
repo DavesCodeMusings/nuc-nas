@@ -42,9 +42,21 @@ keyUsage = keyCertSign, cRLSign
 EOF
 
 echo "Creating root CA"
-openssl genrsa -out ${KEYS_DIR}/${ROOT_CA}.key 4096
-openssl req -config ${TEMP_DIR}/${ROOT_CA}.conf -key ${KEYS_DIR}/${ROOT_CA}.key -new -out ${TEMP_DIR}/${ROOT_CA}.csr
-openssl x509 -trustout -signkey ${KEYS_DIR}/${ROOT_CA}.key -days 3650 -req -in ${TEMP_DIR}/${ROOT_CA}.csr -out ${CERTS_DIR}/${ROOT_CA}.crt
+openssl genrsa \
+  -out ${KEYS_DIR}/${ROOT_CA}.key \
+  4096
+openssl req \
+  -config ${TEMP_DIR}/${ROOT_CA}.conf
+  -key ${KEYS_DIR}/${ROOT_CA}.key \
+  -new \
+  -out ${TEMP_DIR}/${ROOT_CA}.csr
+openssl x509 \
+  -trustout \
+  -signkey ${KEYS_DIR}/${ROOT_CA}.key \
+  -req \
+  -in ${TEMP_DIR}/${ROOT_CA}.csr \
+  -out ${CERTS_DIR}/${ROOT_CA}.crt \
+  -days 3650
 
 echo "Creating intermediate CA config"
 cat <<EOF >${TEMP_DIR}/home.conf
@@ -68,9 +80,22 @@ keyUsage = keyCertSign, cRLSign
 EOF
 
 echo "Creating intermediate CA"
-openssl genrsa -out ${KEYS_DIR}/${DOMAIN}.key 2048
-openssl req -config ${TEMP_DIR}/${DOMAIN}.conf -key ${KEYS_DIR}/${DOMAIN}.key -new -out ${TEMP_DIR}/${DOMAIN}.csr
-openssl x509 -trustout -req -CA ${CERTS_DIR}/${ROOT_CA}.crt -CAkey ${KEYS_DIR}/${ROOT_CA}.key -in ${TEMP_DIR}/${DOMAIN}.csr -out ${CERTS_DIR}/${DOMAIN}.crt -days 3650
+openssl genrsa \
+  -out ${KEYS_DIR}/${DOMAIN}.key
+  2048
+openssl req \
+  -config ${TEMP_DIR}/${DOMAIN}.conf \
+  -key ${KEYS_DIR}/${DOMAIN}.key \
+  -new \
+  -out ${TEMP_DIR}/${DOMAIN}.csr
+openssl x509 \
+  -trustout \
+  -req \
+  -CA ${CERTS_DIR}/${ROOT_CA}.crt \
+  -CAkey ${KEYS_DIR}/${ROOT_CA}.key \
+  -in ${TEMP_DIR}/${DOMAIN}.csr \
+  -out ${CERTS_DIR}/${DOMAIN}.crt \
+  -days 3650
 
 echo "Cleaning up temporary files"
 rm ${TEMP_DIR}/${ROOT_CA}.csr
