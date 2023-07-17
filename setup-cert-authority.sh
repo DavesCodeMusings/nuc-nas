@@ -137,7 +137,7 @@ openssl req \
   -nodes \
   -keyout ${KEYS_DIR}/${HOST}.key \
   -out ${TEMP_DIR}/${HOST}.csr \
-  -config csr.conf
+  -config ${TEMP_DIR}/${HOST}.conf
 
 # Sign the request using the intermediate certificate authority.
 openssl x509 -req \
@@ -146,7 +146,7 @@ openssl x509 -req \
   -CAkey ${KEYS_DIR}/${DOMAIN}.key \
   -CAcreateserial \
   -out ${HOST}.crt \
-  -days 1825 \
+  -days 365 \
   -sha256 \
   -extfile cert.conf
 
