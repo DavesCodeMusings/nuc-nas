@@ -70,7 +70,7 @@ The first time Gitea is run, you'll be taken to a configuration page for the app
 [Gitea documentation](https://docs.gitea.io/) provides more detailed configuration assistance.
 
 ## Integrating Gitea with Portainer
-There is a feature in Portainer that lets you control your Docker Compose projects from the Portainer interface and retrieve your docker-compose.yml from a Git repository. Gitea can provide this repository. Portainer can further be configured with webhooks to redeploy a Docker Compose project anytime the Git repository holding the docker-compose.yml is updated.
+There is a feature in Portainer that lets you control your Docker Compose projects from the Portainer interface and retrieve your docker-compose.yml from a Git repository. Gitea can provide this repository.
 
 ## Next Steps
 Portainer, Nextcloud, and Gitea all require you to set up a user account. They're also all capable of using LDAP for centralized account management. To make this possible, you'll want to install [OpenLDAP](06_OpenLDAP.md)
