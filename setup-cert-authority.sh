@@ -150,7 +150,7 @@ openssl x509 -req \
   -out ${HOST}.crt \
   -days 365 \
   -sha256 \
-  -extfile cert.conf
+  -extfile ${TEMP_DIR}/${HOST}.conf
 
 echo "Cleaning up temporary files"
 rm ${TEMP_DIR}/${ROOT_CA}.csr
