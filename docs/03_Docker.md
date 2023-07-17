@@ -17,7 +17,7 @@ The [setup_docker.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud
 
 1. Create a logical volume that will be mounted on /var/lib/docker (this is where Docker stores nearly everything and storage needs can grow.)
 2. Install Docker Community Edition and Docker Compose from APK packages and start the Docker service.
-3. Create a Docker Compose project for Portainer (a Docker web-based admin tool) and start it up.
+3. Create a Docker Compose project for Portainer (a web-based Docker administration tool) and start it up.
 
 If you already have Portainer running in your environment, there is an option in the script to install the Portainer Agent rather than the full administrative tool.
 
