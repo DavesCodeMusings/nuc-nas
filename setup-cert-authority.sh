@@ -4,7 +4,7 @@ COUNTRY=
 STATE_PROVINCE=
 CITY=
 
-# All variables must be set
+echo "Verifying settings"
 [ -n "$ROOT_CA" ] || exit 1
 [ -n "$DOMAIN" ] || exit 1
 [ -n "$COUNTRY" ] || exit 1
@@ -14,7 +14,7 @@ CITY=
 CERTS_DIR=/etc/ssl/certs
 KEYS_DIR=/etc/ssl/private
 
-# Destination directories must exist
+echo "Verifying directories"
 [ -d "$CERTS_DIR" ] || exit 2
 [ -d "$KEYS_DIR" ] || exit 2
 
