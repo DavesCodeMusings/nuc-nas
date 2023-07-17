@@ -45,11 +45,13 @@ echo "Creating root CA"
 openssl genrsa \
   -out ${KEYS_DIR}/${ROOT_CA}.key \
   4096
+  
 openssl req \
-  -config ${TEMP_DIR}/${ROOT_CA}.conf
+  -config ${TEMP_DIR}/${ROOT_CA}.conf \
   -key ${KEYS_DIR}/${ROOT_CA}.key \
   -new \
   -out ${TEMP_DIR}/${ROOT_CA}.csr
+  
 openssl x509 \
   -trustout \
   -signkey ${KEYS_DIR}/${ROOT_CA}.key \
@@ -81,13 +83,15 @@ EOF
 
 echo "Creating intermediate CA"
 openssl genrsa \
-  -out ${KEYS_DIR}/${DOMAIN}.key
+  -out ${KEYS_DIR}/${DOMAIN}.key \
   2048
+
 openssl req \
   -config ${TEMP_DIR}/${DOMAIN}.conf \
   -key ${KEYS_DIR}/${DOMAIN}.key \
   -new \
   -out ${TEMP_DIR}/${DOMAIN}.csr
+
 openssl x509 \
   -trustout \
   -req \
