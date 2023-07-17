@@ -13,12 +13,12 @@ echo "Verifying settings"
 
 CERTS_DIR=/etc/ssl/certs
 KEYS_DIR=/etc/ssl/private
+TEMP_DIR=$(mktemp -d)
 
 echo "Verifying directories"
 [ -d "$CERTS_DIR" ] || exit 2
 [ -d "$KEYS_DIR" ] || exit 2
-
-TEMP_DIR=$(mktemp -d)
+[ -d "$TEMP_DIR" ] || exit 2
 
 echo "Creating root CA config"
 cat <<EOF >${TEMP_DIR}/${ROOT_CA}.conf
