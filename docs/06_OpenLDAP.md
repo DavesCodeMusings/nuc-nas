@@ -94,8 +94,9 @@ Links to the various application configuration instructions are listed below.
 * [Nextcloud](https://docs.nextcloud.com/server/19/admin_manual/configuration_user/user_auth_ldap.html)
 * [Gitea](https://docs.gitea.com/next/usage/authentication)
 
-## Next Steps
+## Additional Information
 
 OpenLDAP is very command-line intensive and perhaps not the easiest of software to grasp. Searching the net for "openldap import ldif" can give you some hints on how to bulk add users and groups to the LDAP directory. There's also a rather old tool for Windows called [LDAP Admin](http://www.ldapadmin.org/) that offers a graphical user interface to the LDAP directory.
 
+## Next Steps
 After you've got LDAP mastered, you can move on to setting up local email delivery [exim and dovecot](07_Exim_Dovecot.md)
