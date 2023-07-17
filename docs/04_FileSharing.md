@@ -5,7 +5,7 @@ In this step, Nextcloud and Samba are configured to run as Docker containers usi
 By the end of this step, you will have:
 * Created a logical volume for file storage.
 * Created a Docker Compose project for Nextcloud and Samba containers.
-* Started the containers in the Docker Project.
+* Started the containers in the Docker Compose project.
 
 ## Can I skip it?
 You could skip this step if you don't want to share files, or you could modify the Docker Compose project to only install one of the two file sharing containers.
