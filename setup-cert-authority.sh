@@ -4,6 +4,7 @@ CITY=
 ROOT_CA=HomeCA
 DOMAIN=home
 HOST=$(hostname -s)
+IP=$(ip addr show | awk '/inet.*eth0/ { split($2, cidr, "/"); print cidr[1] }')
 
 echo "Verifying settings"
 [ -n "$COUNTRY" ] || exit 1
@@ -12,6 +13,7 @@ echo "Verifying settings"
 [ -n "$ROOT_CA" ] || exit 1
 [ -n "$DOMAIN" ] || exit 1
 [ -n "$HOST" ] || exit 1
+[ -n "$IP" ] || exit 1
 
 CERTS_DIR=/etc/ssl/certs
 KEYS_DIR=/etc/ssl/private
@@ -127,7 +129,7 @@ subjectAltName = @alt_names
 
 [alt_names]
 DNS.1 = ${HOST}.${DOMAIN}
-DNS.1 = *.${HOST}.${DOMAIN}
+DNS.2 = *.${HOST}.${DOMAIN}
 IP.1 = ${IP}
 EOF
 
