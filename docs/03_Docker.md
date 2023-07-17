@@ -1,5 +1,5 @@
 # Containerized Workloads with Docker
-Docker provides a way to run applications as containers.
+Docker provides a way to run applications in isolated workloads called containers. Many pre-built containers exist, making running a new application a quick and easy process.
 
 At the end of this step, you will have:
 * Created a logical volume to store things related to Docker.
