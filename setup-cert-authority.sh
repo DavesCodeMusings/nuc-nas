@@ -46,3 +46,6 @@ openssl genrsa -out ${KEYS_DIR}/${ROOT_CA}.key 4096
 openssl req -config ${TEMP_DIR}/${ROOT_CA}.conf -key ${KEYS_DIR}/${ROOT_CA}.key -new -out ${TEMP_DIR}/${ROOT_CA}.csr
 openssl x509 -trustout -signkey ${KEYS_DIR}/${ROOT_CA}.key -days 3650 -req -in ${TEMP_DIR}/${ROOT_CA}.csr -out ${CERTS_DIR}/${ROOT_CA}.crt
 
+echo "Cleaning up temporary files"
+rm ${TEMP_DIR}/${ROOT_CA}.csr
+rm ${TEMP_DIR}/${ROOT_CA}.conf
