@@ -5,11 +5,11 @@ STATE_PROVINCE=
 CITY=
 
 # All variables must be set
-[ -n ROOT_CA ] || exit 1
-[ -n DOMAIN ] || exit 1
-[ -n COUNTRY ] || exit 1
-[ -n STATE_PROVINCE ] || exit 1
-[ -n CITY ] || exit 1
+[ -n ${ROOT_CA} ] || exit 1
+[ -n ${DOMAIN} ] || exit 1
+[ -n ${COUNTRY} ] || exit 1
+[ -n ${STATE_PROVINCE} ] || exit 1
+[ -n ${CITY} ] || exit 1
 
 CERTS_DIR=/etc/ssl/certs
 KEYS_DIR=/etc/ssl/private
