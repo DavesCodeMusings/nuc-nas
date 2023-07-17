@@ -1,4 +1,4 @@
-# Certificate Authority
+# Certificate Authority for Secure Connections
 In this step, we'll set up a self-hosted certificate authority (CA). Having your own CA allows you to create SSL certificates for the various devices and services on your network.
 
 By the end of this step you will have:
