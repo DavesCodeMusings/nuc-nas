@@ -1,5 +1,5 @@
 # Provisioning Storage with Logical Volume Manager
-The Alpine OS is installed using three disk parititions: boot, swap, and root. The remaining space will be allocated to the Logical Volume Manager (LVM) so you can easily divide it up in whatever way makes sense for your needs. With the exception of creating the partition, everything is automated with a script.
+The Alpine OS is installed using three disk parititions: boot, swap, and root. The remaining space will be allocated to the Logical Volume Manager (LVM) so you can easily divide it up in whatever way makes sense for your needs. Everything is automated with a script, but you will need to visually verify the new partition layout and give confirmation to write it to disk.
 
 By the ends of this step, you will have:
 1. Created a partition of type _Linux LVM_.
