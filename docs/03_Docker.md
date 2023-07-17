@@ -19,7 +19,7 @@ The [setup_docker.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud
 2. Install Docker Community Edition and Docker Compose from APK packages and start the Docker service.
 3. Create a Docker Compose project for Portainer (a web-based Docker administration tool) and start it up.
 
-If you already have Portainer running in your environment, there is an option in the script to install the Portainer Agent rather than the full administrative tool.
+>If you already have Portainer running in your environment, there is an option in the script to install the Portainer Agent rather than the full administrative tool.
 
 ## Running setup-docker.sh
 First, download the [setup_docker.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-docker.sh) using wget.
