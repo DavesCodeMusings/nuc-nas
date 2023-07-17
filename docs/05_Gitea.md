@@ -7,7 +7,7 @@ By the end of this step, you will have:
 * Installed command-line tools from the git APK package.
 
 ## Can I skip it?
-Gitea provides an on-premise git hosting solution similar to GitHub and GitLab. If you have no need for a centralized place for you git repositories, or if you use a public hosting option, you can skip this step.
+Gitea provides an on-premise git hosting solution similar to GitHub and GitLab. If you have no need for a centralized place for your code repositories, or if you use a public hosting option, you can skip this step.
 
 ## Why Gitea?
 Of the self-hosted git server options, Gitea is one of the simplest to install. It can also function without using a lot of server resources, making it ideal for a low-power device.
