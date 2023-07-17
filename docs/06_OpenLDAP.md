@@ -19,8 +19,7 @@ OpenLDAP has been around for a long time and is well documented. For a simple ho
 1. Install OpenLDAP and related APKs.
 2. Adjust the Alpine settings for the OpenLDAP package to conform to more recent versions of OpenLDAP.
 3. Customize the initial configuration import file (slapd.ldif) to match the DNS domain.
-4. Add the schema required for Linux-style user accounts.
-5. Configure the service to start when the system comes up.
+4. Configure the service to start when the system comes up.
 
 There is one important configuration setting in the setup-openldap.sh script.
 
