@@ -19,7 +19,7 @@ The [setup-file-sharing.sh](https://raw.githubusercontent.com/DavesCodeMusings/n
 2. Create directories under /srv for Nexclound and Samba to use.
 3. Create the Docker Compose project and start the services.
 
-Like the other scripts, there are variables at the top for customization. The VOL_SIZE variable specifies the initial size of the logical volume. It is intentionally size on the small side. If you have a lot of files, may want to increase it at the outset, or you can use `lvextend` to do it later.
+Like the other scripts, there are variables at the top for customization. The VOL_SIZE variable specifies the initial size of the logical volume. It's intentionally on the small side. If you have a lot of files, may want to increase it at the outset, or you can use `lvextend` to do it later.
 
 > /srv was chosen based on the [Linux Filesystem Hierarchy's](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s17.html) recommendations for "data for services provided by this system".
 
