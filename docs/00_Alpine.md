@@ -5,7 +5,7 @@ The first step in building a the system is to add RAM and a solid state disk (SS
 At the end of this step, you'll have Alpine installed and ready to log into via secure shell (SSH) for the remaining setup and customization.
 
 ## Can I Skip This?
-No. But, you can use the Alpine-supplied `setup-alpine` script instead of the automated wrapper script presented here.
+No. But, you can use the Alpine-supplied `setup-alpine` interactive script instead of the automated wrapper script presented here.
 
 ## Why Alpine?
 Alpine Linux is small footprint OS and, like the NUC hardware, fits with the minimalist goals of the project.
