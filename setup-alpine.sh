@@ -1,8 +1,8 @@
-KEYBOARD_LAYOUT=us   # First prompt when running setup-keymaps
-KEYBOARD_VARIANT=us  # Second prompt when running setup-keymaps
 HOSTNAME=alpine
 DOMAIN=home
-DNS=$(ip route show | awk '/^default/ { print $3 }')  # Assume the router (default gateway) also provides DNS.
+KEYBOARD_LAYOUT=us   # First prompt when running setup-keymaps
+KEYBOARD_VARIANT=us  # Second prompt when running setup-keymaps
+DNS1=$(ip route show | awk '/^default/ { print $3 }')  # Assume the router (default gateway) also provides DNS.
 BOOT_SIZE=100
 ROOT_SIZE=8192
 SWAP_SIZE=8192
@@ -18,7 +18,7 @@ auto eth0
 iface eth0 inet dhcp
     hostname ${HOSTNAME}.${DOMAIN}
 "
-DNSOPTS="-d ${DOMAIN} ${DNS}"
+DNSOPTS="-d ${DOMAIN} ${DNS1}"
 TIMEZONEOPTS="-z UTC"
 PROXYOPTS="none"
 APKREPOSOPTS="-1 -c"  # Use the first mirror and enable community repository
