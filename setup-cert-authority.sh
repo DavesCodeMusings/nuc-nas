@@ -1,10 +1,15 @@
 COUNTRY=
 STATE_PROVINCE=
 CITY=
+COUNTRY=US
+STATE_PROVINCE=Wisconsin
+CITY="Sun Prairie"
 ROOT_CA=HomeCA
 DOMAIN=home
 HOST=$(hostname -s)
 IP=$(ip addr show | awk '/inet.*eth0/ { split($2, cidr, "/"); print cidr[1] }')
+
+echo "${IP} ${HOST}.${DOMAIN}"
 
 echo "Verifying settings"
 [ -n "$COUNTRY" ] || exit 1
@@ -49,13 +54,13 @@ echo "Creating root CA"
 openssl genrsa \
   -out ${KEYS_DIR}/${ROOT_CA}.key \
   4096
-  
+
 openssl req \
   -config ${TEMP_DIR}/${ROOT_CA}.conf \
   -key ${KEYS_DIR}/${ROOT_CA}.key \
   -new \
   -out ${TEMP_DIR}/${ROOT_CA}.csr
-  
+
 openssl x509 \
   -trustout \
   -signkey ${KEYS_DIR}/${ROOT_CA}.key \
@@ -122,9 +127,6 @@ O = ${DOMAIN}
 CN = ${HOST}.${DOMAIN}
 
 [req_ext]
-authorityKeyIdentifier=keyid,issuer
-basicConstraints = CA:false
-keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
 subjectAltName = @alt_names
 
 [alt_names]
@@ -147,9 +149,10 @@ openssl x509 -req \
   -CA ${CERTS_DIR}/${DOMAIN}.crt \
   -CAkey ${KEYS_DIR}/${DOMAIN}.key \
   -CAcreateserial \
-  -out ${HOST}.crt \
+  -out ${CERTS_DIR}/${HOST}.crt \
   -days 365 \
   -sha256 \
+  -extensions req_ext \
   -extfile ${TEMP_DIR}/${HOST}.conf
 
 echo "Cleaning up temporary files"
@@ -158,4 +161,5 @@ rm ${TEMP_DIR}/${ROOT_CA}.conf
 rm ${TEMP_DIR}/${DOMAIN}.csr
 rm ${TEMP_DIR}/${DOMAIN}.conf
 rm ${TEMP_DIR}/${HOST}.conf
+rm ${TEMP_DIR}/${HOST}.csr
 rmdir ${TEMP_DIR}
