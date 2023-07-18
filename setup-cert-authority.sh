@@ -2,9 +2,9 @@ COUNTRY=
 STATE_PROVINCE=
 CITY=
 ROOT_CA=HomeCA
-DOMAIN=home
+DOMAIN=$(hostname -d)
 HOST=$(hostname -s)
-IP=$(ip addr show | awk '/inet.*eth0/ { split($2, cidr, "/"); print cidr[1] }')
+IP=$(hostname -i)
 
 echo "${IP} ${HOST}.${DOMAIN}"
 
