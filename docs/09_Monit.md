@@ -82,4 +82,4 @@ monit reload
 ```
 
 ## Next Steps
-At this point, the system is pretty full-featured for such modest hardware. One thing that will tie it all together nicely is a web server with reverse proxy capability. [Nginx](09_Nginx.md) is just such an application and it fits nicely with the containerized applications we've built so far. 
+At this point, the system is pretty full-featured for such modest hardware. One thing that will tie it all together nicely is a web server with reverse proxy capability. [Nginx](10_Nginx.md) is just such an application and it fits nicely with the containerized applications we've built so far. 
