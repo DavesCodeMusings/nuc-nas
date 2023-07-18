@@ -77,7 +77,7 @@ subject=C = US, ST = Wisconsin, L = Madison, O = home, CN = alpine.home
 Cleaning up temporary files
 ```
 
-You'll see information about your host after _Verify settings_. If the script stops here, something is missing.
+You'll see information about your host after _Verify settings_. If the script stops there, something is missing.
 
 You should see three lines with a _Certificate request self-signature ok_ message. These are for the root CA, the intermediate CA, and the host certificate, respectively.
 
