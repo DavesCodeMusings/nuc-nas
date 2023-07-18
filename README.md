@@ -8,4 +8,4 @@ https://github.com/DavesCodeMusings/nucloud/blob/main/docs/index.md
 ___
 
 _Celeron and Intel are [trademarks of Intel Corporation or its subsidiaries](https://www.intel.com/content/www/us/en/legal/trademarks.html)._
-_N&uuml;Cloud is a portmanteau of NUC and cloud with a [metal umlaut thrown in for good measure](https://en.wikipedia.org/wiki/Metal_umlaut)._
+_N&uuml;Cloud is a portmanteau of NUC and cloud with a [metal umlaut](https://en.wikipedia.org/wiki/Metal_umlaut) thrown in for good measure._
