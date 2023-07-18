@@ -13,7 +13,7 @@ You may be able to configure your router with a DHCP reservation to achieve the 
 Besides having a predictable way of reaching your server, you have the option of adding services like intranet mail, DNS, web, and others that rely on an unchanging address.
 
 ## Why /etc/hosts?
-With DNS available, /etc/hosts may seem like a throwback to the early days of the ARPAnet, but it has its uses. For one, the `hostname` command relies on the informaation in /etc/hosts to provide the domain name and IP address when the -d and -i options are used. With out /etc/hosts, the information cannot be retrieved.
+With DNS available, /etc/hosts may seem like a throwback to the early days of the ARPAnet, but it has its uses. For one, the `hostname` command relies on the informaation in /etc/hosts to provide the domain name and IP address when the -d and -i options are used. Without /etc/hosts, the information cannot be retrieved.
 
-## Understanding the Scripted Changes
+## Understanding the Changes
 
