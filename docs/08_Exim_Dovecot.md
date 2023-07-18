@@ -81,4 +81,4 @@ Add them to /etc/dovecot/passwd like this: username:password
 The root user can't log on via IMAP, so you'll probably want to edit /etc/mail/aliases to send root's mail to a regular user. Be sure to run the command `newaliases` to make the changes take effect when you're done. This is usually enough to ensure system messages make it to your inbox.
 
 ## Next Steps
-Now that the system is setup with multiple services running, you might want a way to monitor the health of things and either notify or take corrective action when things go awry. There are several tools available for this task, but one of the easiest to get up and running is an application called [Monit](08_Monit.md)
+Now that the system is setup with multiple services running, you might want a way to monitor the health of things and either notify or take corrective action when things go awry. There are several tools available for this task, but one of the easiest to get up and running is an application called [Monit](09_Monit.md)
