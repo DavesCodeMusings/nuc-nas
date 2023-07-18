@@ -51,7 +51,7 @@ setup-cert-authority 100% |********************************|  2114  0:00:00 ETA
 'setup-cert-authority.sh' saved
 
 alpine:~# vi setup-cert-authority.sh
-CITY="Madison"
+CITY=Madison
 STATE_PROVINCE=Wisconsin
 COUNTRY=US
 
