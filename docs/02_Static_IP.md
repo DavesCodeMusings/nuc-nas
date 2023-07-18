@@ -18,5 +18,5 @@ With DNS available, /etc/hosts may seem like a throwback to the early days of th
 ## Understanding the Script
 The script will overwrite the following files: /etc/network/interfaces, /etc/hosts, and /etc/resolv.conf. In the end, it will look very much like a fresh install of the operating system. If you have customized these files at all, those changes will be lost. In that case, it's better to edit by hand.
 
-# Configuring Network Parameters
+## Configuring Network Parameters
 
