@@ -1,9 +1,6 @@
 COUNTRY=
 STATE_PROVINCE=
 CITY=
-COUNTRY=US
-STATE_PROVINCE=Wisconsin
-CITY="Sun Prairie"
 ROOT_CA=HomeCA
 DOMAIN=home
 HOST=$(hostname -s)
