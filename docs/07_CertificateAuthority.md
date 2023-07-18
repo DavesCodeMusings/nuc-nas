@@ -2,9 +2,9 @@
 In this step, we'll set up a self-hosted certificate authority (CA). Having your own CA allows you to create SSL certificates for the various devices and services on your network.
 
 By the end of this step you will have:
-1. Created a self-signed root CA certificate
-2. Created an intermediate CA certificate
-3. Created a certificate for the host.
+* Created a self-signed root CA certificate
+* Created an intermediate CA certificate
+* Created a certificate for the host.
 
 ## Can I skip it?
 Yes. You can simply use unencrypted communication. Or you can use a service like Let's Encrypt.
