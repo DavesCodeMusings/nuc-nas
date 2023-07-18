@@ -2,9 +2,9 @@
 In this step, we'll set up a self-hosted certificate authority (CA). Having your own CA allows you to create SSL certificates for the various devices and services on your network.
 
 By the end of this step you will have:
-* Created a self-signed root CA certificate
-* Created an intermediate CA certificate
-* Created a certificate for the host.
+* A self-signed root CA certificate
+* An intermediate CA certificate
+* A certificate for the host with wildcard subdomains.
 
 ## Can I skip it?
 Yes. You can simply use unencrypted communication. Or you can use a service like Let's Encrypt.
