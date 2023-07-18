@@ -15,5 +15,8 @@ Besides having a predictable way of reaching your server, you have the option of
 ## Why /etc/hosts?
 With DNS available, /etc/hosts may seem like a throwback to the early days of the ARPAnet, but it has its uses. For one, the `hostname` command relies on the informaation in /etc/hosts to provide the domain name and IP address when the -d and -i options are used. Without /etc/hosts, the information cannot be retrieved.
 
-## Understanding the Changes
+## Understanding the Script
+The script will overwrite the following files: /etc/network/interfaces, /etc/hosts, and /etc/resolv.conf. In the end, it will look very much like a fresh install of the operating system. If you have customized these files at all, those changes will be lost. In that case, it's better to edit by hand.
+
+# Configuring Network Parameters
 
