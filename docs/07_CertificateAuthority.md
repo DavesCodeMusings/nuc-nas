@@ -99,4 +99,4 @@ The root and intermediate (HOME_CA and home) aren't used to secure web servers a
 A detailed discussion of how to sign certificates is beyond the scope of this document, but you can find plenty of resources by serching the web for "how to self sign a certificate". You can also reverse engineer the host certificate portion of the setup-cert-authority.sh script.
 
 ## Next Steps
-TODO
+You can pause here and use the certificate authority to add TLS encryption to the services installed so far or you can put it on your TODO list and forge ahead. The next step is to enable system messages via email by setting up [Exim and Dovecot](Exim_Dovecot.md)
