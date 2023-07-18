@@ -10,7 +10,7 @@ By the end of this step you will have:
 Yes. You can simply use unencrypted communication. Or you can use a publict certificate service like Let's Encrypt.
 
 ## Why Self-Signed Certificates
-Probably the biggest reason is to be able to use https links for the web-based services on your hosts and stop those _this connection is insecure_ messages. Having your own CA means you can create as many certificates as you like. And if you copy the signing certificate to your devices, they will all trust your certificates.
+Probably the biggest reason is to be able to use https links for the web-based services on your hosts and stop those _this connection is insecure_ messages. Having your own CA means you can secure as many devices as you like. And if you copy the signing certificate to your devices, they will all trust your certificates.
 
 ## Understanding the Script
 The certificate issuing process goes like this:
