@@ -5,7 +5,6 @@ By the end of this step you will have:
 1. Created a self-signed root CA certificate
 2. Created an intermediate CA certificate
 3. Created a certificate for the host.
-4. Learned how to create certificates for your devices.
 
 ## Can I skip it?
 Yes. You can simply use unencrypted communication. Or you can use a service like Let's Encrypt.
