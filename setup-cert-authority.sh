@@ -2,18 +2,18 @@ COUNTRY=
 STATE_PROVINCE=
 CITY=
 ROOT_CA=HomeCA
-DOMAIN=$(hostname -d)
+DNS_DOMAIN=$(hostname -d)
 HOST=$(hostname -s)
 IP=$(hostname -i)
 
-echo "${IP} ${HOST}.${DOMAIN}"
+echo "${IP} ${HOST}.${DNS_DOMAIN}"
 
 echo "Verifying settings"
 [ -n "$COUNTRY" ] || exit 1
 [ -n "$STATE_PROVINCE" ] || exit 1
 [ -n "$CITY" ] || exit 1
 [ -n "$ROOT_CA" ] || exit 1
-[ -n "$DOMAIN" ] || exit 1
+[ -n "$DNS_DOMAIN" ] || exit 1
 [ -n "$HOST" ] || exit 1
 [ -n "$IP" ] || exit 1
 
@@ -79,8 +79,8 @@ prompt = no
 C = ${COUNTRY}
 ST = ${STATE_PROVINCE}
 L = ${CITY}
-O = ${DOMAIN}
-CN = ${DOMAIN}
+O = ${DNS_DOMAIN}
+CN = ${DNS_DOMAIN}
 
 [req_ext]
 basicConstraints = critical, CA:true
@@ -89,22 +89,22 @@ EOF
 
 echo "Creating intermediate CA"
 openssl genrsa \
-  -out ${KEYS_DIR}/${DOMAIN}.key \
+  -out ${KEYS_DIR}/${DNS_DOMAIN}.key \
   2048
 
 openssl req \
-  -config ${TEMP_DIR}/${DOMAIN}.conf \
-  -key ${KEYS_DIR}/${DOMAIN}.key \
+  -config ${TEMP_DIR}/${DNS_DOMAIN}.conf \
+  -key ${KEYS_DIR}/${DNS_DOMAIN}.key \
   -new \
-  -out ${TEMP_DIR}/${DOMAIN}.csr
+  -out ${TEMP_DIR}/${DNS_DOMAIN}.csr
 
 openssl x509 \
   -trustout \
   -req \
   -CA ${CERTS_DIR}/${ROOT_CA}.crt \
   -CAkey ${KEYS_DIR}/${ROOT_CA}.key \
-  -in ${TEMP_DIR}/${DOMAIN}.csr \
-  -out ${CERTS_DIR}/${DOMAIN}.crt \
+  -in ${TEMP_DIR}/${DNS_DOMAIN}.csr \
+  -out ${CERTS_DIR}/${DNS_DOMAIN}.crt \
   -days 3650
 
 echo "Creating host certificate config"
@@ -120,15 +120,15 @@ prompt = no
 C = ${COUNTRY}
 ST = ${STATE_PROVINCE}
 L = ${CITY}
-O = ${DOMAIN}
-CN = ${HOST}.${DOMAIN}
+O = ${DNS_DOMAIN}
+CN = ${HOST}.${DNS_DOMAIN}
 
 [req_ext]
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = ${HOST}.${DOMAIN}
-DNS.2 = *.${HOST}.${DOMAIN}
+DNS.1 = ${HOST}.${DNS_DOMAIN}
+DNS.2 = *.${HOST}.${DNS_DOMAIN}
 IP.1 = ${IP}
 EOF
 
@@ -143,8 +143,8 @@ openssl req \
 # Sign the request using the intermediate certificate authority.
 openssl x509 -req \
   -in ${TEMP_DIR}/${HOST}.csr \
-  -CA ${CERTS_DIR}/${DOMAIN}.crt \
-  -CAkey ${KEYS_DIR}/${DOMAIN}.key \
+  -CA ${CERTS_DIR}/${DNS_DOMAIN}.crt \
+  -CAkey ${KEYS_DIR}/${DNS_DOMAIN}.key \
   -CAcreateserial \
   -out ${CERTS_DIR}/${HOST}.crt \
   -days 365 \
@@ -155,8 +155,8 @@ openssl x509 -req \
 echo "Cleaning up temporary files"
 rm ${TEMP_DIR}/${ROOT_CA}.csr
 rm ${TEMP_DIR}/${ROOT_CA}.conf
-rm ${TEMP_DIR}/${DOMAIN}.csr
-rm ${TEMP_DIR}/${DOMAIN}.conf
+rm ${TEMP_DIR}/${DNS_DOMAIN}.csr
+rm ${TEMP_DIR}/${DNS_DOMAIN}.conf
 rm ${TEMP_DIR}/${HOST}.conf
 rm ${TEMP_DIR}/${HOST}.csr
 rmdir ${TEMP_DIR}
