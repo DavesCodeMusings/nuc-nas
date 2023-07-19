@@ -1,9 +1,9 @@
-# Set INTERFACE for auto-detection. Set NETADDR and NETMASK for manual.
-INTERFACE=eth0
+# Set NETADDR and NETMASK for manual.
 #NETADDR='192.168.1.0'
 #NETMASK='255.255.255.0'
 
 if [ "$NETADDR" == "" ] || [ "$NETMASK" == "" ]; then
+  INTERFACE=$(ip route show | awk '/^default/ { print $5 }')
   echo "Detecting network configuration for device ${INTERFACE}..."
   NETCIDR=$(ip route show | grep "dev ${INTERFACE} scope link" | cut -d' ' -f1)
   NETADDR=$(ipcalc -n $NETCIDR 2>/dev/null | cut -d= -f2)
