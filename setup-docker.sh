@@ -1,6 +1,6 @@
 DOCKER_VOL_SIZE=10G
 DOCKER_VOL_GROUP=vg0
-AGENT_ONLY=no
+PORTAINER_AGENT_ONLY=no
 
 echo "Creating docker directory"
 mkdir -p /var/lib/docker || exit 2
@@ -20,7 +20,7 @@ echo "Creating compose project directory"
 mkdir -p /var/lib/docker/compose/portainer || exit 3
 
 echo "Creating Portainer compose file"
-if [ "$AGENT_ONLY" == "no" ]; then
+if [ "$PORTAINER_AGENT_ONLY" == "no" ]; then
   cat <<EOF >/var/lib/docker/compose/portainer/compose.yml
 services:
     portainer:
