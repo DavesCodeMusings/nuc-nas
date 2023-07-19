@@ -1,5 +1,5 @@
-USERNAME=admin
-FULLNAME="System Administrator"
+ADMIN_USERNAME=admin
+ADMIN_FULLNAME="System Administrator"
 
 echo "Installing packages"
 apk update
@@ -10,6 +10,6 @@ cat <<EOF >/etc/sudoers.d/nopasswd
 %wheel ALL=(ALL) NOPASSWD: ALL
 EOF
 
-echo "Creating user account: $USERNAME"
-adduser -g "$FULLNAME" $USERNAME
-addgroup $USERNAME wheel
+echo "Creating user account: $ADMIN_USERNAME"
+adduser -g "$ADMIN_FULLNAME" $ADMIN_USERNAME
+addgroup $ADMIN_USERNAME wheel
