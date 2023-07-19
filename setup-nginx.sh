@@ -1,5 +1,6 @@
-SSL_CERT=/etc/ssl/certs/$(hostname).crt
-SSL_KEY=/etc/ssl/private/$(hostname).key
+HOST=$(hostname -s)
+SSL_CERT=/etc/ssl/certs/${HOST}.crt
+SSL_KEY=/etc/ssl/private/${HOST}.key
 
 if ! [ -f $SSL_CERT ] || ! [ -f $SSL_KEY ]; then
   echo "SSL certificate and key not found!"
