@@ -1,11 +1,11 @@
-REGISTRY_PORT=5000
+DOCKER_REGISTRY_PORT=5000
 HOSTNAME=$(hostname -f)
-DOMAIN=$(hostname -d)
+DNS_DOMAIN=$(hostname -d)
 
 echo "Looking for TLS certificates"
 TLS_CERT=/etc/ssl/certs/${HOSTNAME}.crt
 TLS_KEY=/etc/ssl/private/${HOSTNAME}.key
-TLS_CA=/etc/ssl/certs/${DOMAIN}.crt
+TLS_CA=/etc/ssl/certs/${DNS_DOMAIN}.crt
 
 [ -f $TLS_CERT ] || exit 1
 [ -f $TLS_KEY ] || exit 1
@@ -13,7 +13,7 @@ TLS_CA=/etc/ssl/certs/${DOMAIN}.crt
 
 echo "Creating directories"
 mkdir /var/lib/docker/compose/registry || exit 2
-mkdir -p /etc/docker/certs.d/${HOSTNAME}:${REGISTRY_PORT} || exit 2
+mkdir -p /etc/docker/certs.d/${HOSTNAME}:${DOCKER_REGISTRY_PORT} || exit 2
 
 echo "Creating compose file"
 cat <<EOF >compose.yml
@@ -26,7 +26,7 @@ services:
             - REGISTRY_HTTP_TLS_CERTIFICATE=${TLS_CERT}
             - REGISTRY_HTTP_TLS_KEY=${TLS_KEY}
         ports:
-            - ${REGISTRY_PORT}:5000
+            - ${DOCKER_REGISTRY_PORT}:5000
         restart: unless-stopped
         volumes:
             - /etc/localtime:/etc/localtime:ro
@@ -41,15 +41,15 @@ echo "Starting registry"
 docker-compose up -d
 
 echo "Configuring Docker to trust registry TLS cert"
-cp ${TLS_CA} /etc/docker/certs.d/${HOSTNAME}:${REGISTRY_PORT}/ca.crt
+cp ${TLS_CA} /etc/docker/certs.d/${HOSTNAME}:${DOCKER_REGISTRY_PORT}/ca.crt
 
 cat <<EOF
 
 List registry contents with:
-  curl -k https://${HOSTNAME}:${REGISTRY_PORT}/v2/_catalog
+  curl -k https://${HOSTNAME}:${DOCKER_REGISTRY_PORT}/v2/_catalog
 
 Configure remote hosts to trust the registry:
   Copy this host's ${TLS_CA}
-  To remote host's /etc/docker/certs.d/${HOSTNAME}:${REGISTRY_PORT}/ca.crt
+  To remote host's /etc/docker/certs.d/${HOSTNAME}:${DOCKER_REGISTRY_PORT}/ca.crt
 
 EOF
