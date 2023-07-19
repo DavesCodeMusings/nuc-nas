@@ -1,4 +1,4 @@
-export OPENLDAP_DOMAIN="dc=home"
+LDAP_DOMAIN = $(hostname -d | awk -F. '{ for (i=1; i<NF; i++) printf("dc=%s,",$i) ; printf("dc=%s", $NF) }')
 
 echo "Installing packages"
 apk add openldap openldap-back-mdb openldap-clients
