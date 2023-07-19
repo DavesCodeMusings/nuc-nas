@@ -1,14 +1,14 @@
-VOL_SIZE=10G
-VOL_GROUP=vg0
+FILE_SHARING_VOL_SIZE=10G
+FILE_SHARING_VOL_GROUP=vg0
 
 echo "Creating compose project directory"
 mkdir -p /var/lib/docker/compose/file-sharing || exit 1
 cd /var/lib/docker/compose/file-sharing || exit 2
 
-echo "Creating logical volume /dev/${VOL_GROUP}/srv"
-lvcreate -n srv -L ${VOL_SIZE} ${VOL_GROUP}
-mkfs.ext4 /dev/${VOL_GROUP}/srv
-echo "/dev/${VOL_GROUP}/srv /srv ext4 rw 1 1" >>/etc/fstab
+echo "Creating logical volume /dev/${FILE_SHARING_VOL_GROUP}/srv"
+lvcreate -n srv -L ${FILE_SHARING_VOL_SIZE} ${FILE_SHARING_VOL_GROUP}
+mkfs.ext4 /dev/${FILE_SHARING_VOL_GROUP}/srv
+echo "/dev/${FILE_SHARING_VOL_GROUP}/srv /srv ext4 rw 1 1" >>/etc/fstab
 mount /srv
 
 echo "Creating directories for user file storage"
