@@ -1,14 +1,14 @@
-VOL_SIZE=10G
-VOL_GROUP=vg0
+DOCKER_VOL_SIZE=10G
+DOCKER_VOL_GROUP=vg0
 AGENT_ONLY=no
 
 echo "Creating docker directory"
 mkdir -p /var/lib/docker || exit 2
 
-echo "Creating logical volume /dev/${VOL_GROUP}/docker"
-lvcreate -n docker -L ${VOL_SIZE} ${VOL_GROUP}
-mkfs.ext4 /dev/${VOL_GROUP}/docker
-echo "/dev/${VOL_GROUP}/docker /var/lib/docker ext4 rw 1 1" >>/etc/fstab
+echo "Creating logical volume /dev/${DOCKER_VOL_GROUP}/docker"
+lvcreate -n docker -L ${DOCKER_VOL_SIZE} ${DOCKER_VOL_GROUP}
+mkfs.ext4 /dev/${DOCKER_VOL_GROUP}/docker
+echo "/dev/${DOCKER_VOL_GROUP}/docker /var/lib/docker ext4 rw 1 1" >>/etc/fstab
 mount /var/lib/docker
 
 echo "Installing packages"
