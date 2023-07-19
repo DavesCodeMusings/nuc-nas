@@ -1,5 +1,5 @@
 HOSTNAME=alpine
-DOMAIN=home
+DNS_DOMAIN=home
 KEYBOARD_LAYOUT=us   # First prompt when running setup-keymaps
 KEYBOARD_VARIANT=us  # Second prompt when running setup-keymaps
 DNS1=$(ip route show | awk '/^default/ { print $3 }')  # Assume the router (default gateway) also provides DNS.
@@ -10,15 +10,15 @@ SWAP_SIZE=8192
 echo "Creating answerfile for /sbin/setup-alpine"
 cat << EOF > answerfile.txt
 KEYMAPOPTS="${KEYBOARD_LAYOUT} ${KEYBOARD_VARIANT}"
-HOSTNAMEOPTS="-n ${HOSTNAME}.${DOMAIN}"
+HOSTNAMEOPTS="-n ${HOSTNAME}.${DNS_DOMAIN}"
 INTERFACESOPTS="auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet dhcp
-    hostname ${HOSTNAME}.${DOMAIN}
+    hostname ${HOSTNAME}.${DNS_DOMAIN}
 "
-DNSOPTS="-d ${DOMAIN} ${DNS1}"
+DNSOPTS="-d ${DNS_DOMAIN} ${DNS1}"
 TIMEZONEOPTS="-z UTC"
 PROXYOPTS="none"
 APKREPOSOPTS="-1 -c"  # Use the first mirror and enable community repository
