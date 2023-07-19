@@ -1,16 +1,16 @@
-ADDRESS=192.168.0.100
-NETMASK=255.255.255.0
-GATEWAY=192.168.0.1
-HOST=alpine
+IPV4_ADDRESS=192.168.0.100
+IPV4_NETMASK=255.255.255.0
+IPV4_GATEWAY=192.168.0.1
+HOSTNAME=alpine
 DOMAIN=home
-DNS1=${GATEWAY}
+DNS1=${IPV4_GATEWAY}
 DNS2=1.1.1.1
 
 echo "Verifying settings"
-[ -n "$ADDRESS" ] || exit 1
-[ -n "$NETMASK" ] || exit 1
-[ -n "$GATEWAY" ] || exit 1
-[ -n "$HOST" ] || exit 1
+[ -n "$IPV4_ADDRESS" ] || exit 1
+[ -n "$IPV4_NETMASK" ] || exit 1
+[ -n "$IPV4_GATEWAY" ] || exit 1
+[ -n "$HOSTNAME" ] || exit 1
 [ -n "$DOMAIN" ] || exit 1
 [ -n "$DNS1" ] || exit 1
 
@@ -21,16 +21,16 @@ iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-    address ${ADDRESS}
-    netmask ${NETMASK}
-    gateway ${GATEWAY}
-    hostname ${HOST}.${DOMAIN}
+    address ${IPV4_ADDRESS}
+    netmask ${IPV4_NETMASK}
+    gateway ${IPV4_GATEWAY}
+    hostname ${HOSTNAME}.${DOMAIN}
 EOF
 
 echo "Writing to /etc/hosts"
 cat <<EOF >/etc/hosts
 127.0.0.1   localhost.localdomain  localhost
-${ADDRESS}  ${HOST}.${DOMAIN}  ${HOST}
+${IPV4_ADDRESS}  ${HOSTNAME}.${DOMAIN}  ${HOSTNAME}
 EOF
 
 echo "Writing to /etc/resolv.conf"
