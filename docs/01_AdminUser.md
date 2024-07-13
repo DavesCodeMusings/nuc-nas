@@ -18,7 +18,7 @@ Normally with Alpine Linux, you would use the `adduser` command to create a new 
 ## Configuring an Admin User
 First, log into the system console as root.
 
-Next, use wget to fetch the [setup-admin-user.sh]() script.
+Next, use wget to fetch the [setup-admin-user.sh](https://raw.githubusercontent.com/DavesCodeMusings/nucloud/main/setup-admin-user.sh) script.
 
 Optionally, customize the username using the variables at the top of the script.
 
