@@ -39,3 +39,5 @@ search ${DOMAIN}
 nameserver ${DNS1}
 EOF
 [ -n "${DNS2}" ] && echo "nameserver ${DNS2}" >>/etc/resolv.conf
+
+echo "You must reboot for changes to take effect."
